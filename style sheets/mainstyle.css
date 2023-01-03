@@ -75,8 +75,8 @@ a {
 }
 
 .accessory-header {
-    margin-top: 45.5vw;
-    padding: 2vw;
+    margin-top: 100vh;
+    padding: 2vh;
     text-align: center;
     text-decoration: underline solid 3px white;
     color: white;
@@ -105,4 +105,13 @@ a {
 .accessory-background {
     background-color: black;
 
+}
+
+.Beltdrive-header {
+    margin: 0;
+    padding-bottom: 2vh;
+    text-align: center;
+    text-decoration: underline solid 3px white;
+    color: white;
+    font-size: 2rem;
 }
