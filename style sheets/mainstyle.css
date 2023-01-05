@@ -74,44 +74,13 @@ a {
     margin-top: 2rem;
 }
 
-.accessory-header {
+#output {
     margin-top: 100vh;
-    padding: 2vh;
+
+}
+
+#output-header {
     text-align: center;
-    text-decoration: underline solid 3px white;
-    color: white;
     font-size: 2rem;
-}
-
-.Accessories {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    text-align: left;
-    flex-wrap: wrap;
-    color: white;
-
-
-
-}
-
-.Accessories div {
-    flex-basis: 0;
-    flex-grow: 1;
-
-}
-
-.accessory-background {
-    background-color: black;
-
-}
-
-.Beltdrive-header {
-    margin: 0;
-    padding-bottom: 2vh;
-    text-align: center;
-    text-decoration: underline solid 3px white;
-    color: white;
-    font-size: 2rem;
+    text-decoration: underline 3px solid;
 }
