@@ -83,4 +83,63 @@ a {
     text-align: center;
     font-size: 2rem;
     text-decoration: underline 3px solid;
+    margin-top: 3vh;
+}
+
+#auto-container {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    /* grid-gap: 0.5rem; */
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        "header header"
+        "Box-1 Aside"
+        "Box-2 Aside"
+        "Box-3 Aside";
+
+}
+
+#part-name {
+    grid-area: header;
+    text-align: center;
+    padding-bottom: 0;
+
+}
+
+
+#part-1 {
+    grid-area: Box-1;
+    border: 2px solid black;
+    padding: 1rem 0.2rem;
+    text-align: left;
+    line-height: 2.5rem;
+    border-radius: 5px;
+}
+
+#part-2 {
+    grid-area: Box-2;
+    border: 2px solid black;
+    padding: 1rem 0.2rem;
+    text-align: left;
+    line-height: 2.5rem;
+    border-radius: 5px;
+}
+
+#part-3 {
+    grid-area: Box-3;
+    border: 2px solid black;
+    padding: 1rem 0.2rem;
+    text-align: left;
+    line-height: 2.5rem;
+    border-radius: 5px;
+}
+
+#sidebar {
+    grid-area: Aside;
+    background-image: url(/images/Ratchet_Image.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
 }
