@@ -81,15 +81,21 @@ a {
 
 #output-header {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     text-decoration: underline 3px solid;
-    margin-top: 3vh;
+    margin-top: 3.5vh;
+    margin-bottom: 0;
+    background-color: black;
+    color: white;
+
 }
 
 #auto-container {
     margin: 0;
     padding: 0;
     display: grid;
+    background-color: black;
+    color: white;
     /* grid-gap: 0.5rem; */
     grid-template-columns: 1fr 2fr;
     grid-template-areas:
@@ -102,37 +108,44 @@ a {
 
 #part-name {
     grid-area: header;
-    text-align: center;
+    text-align: left;
     padding-bottom: 0;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-decoration: underline solid white;
+
 
 }
 
 
 #part-1 {
     grid-area: Box-1;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 1rem 0.2rem;
     text-align: left;
     line-height: 2.5rem;
     border-radius: 5px;
+    color: white;
 }
 
 #part-2 {
     grid-area: Box-2;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 1rem 0.2rem;
     text-align: left;
     line-height: 2.5rem;
     border-radius: 5px;
+    color: white;
 }
 
 #part-3 {
     grid-area: Box-3;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 1rem 0.2rem;
     text-align: left;
     line-height: 2.5rem;
     border-radius: 5px;
+    color: white;
 }
 
 #sidebar {
@@ -142,4 +155,5 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
+    color: white;
 }
