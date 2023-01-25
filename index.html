@@ -1,113 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Money-Smart Motors</title>
-    <link rel="stylesheet" href="./style sheets/mainstyle.css">
-</head>
+    <link rel="stylesheet" href="./style sheets/mainstyle.css" />
+    <script src="./script/main.js"></script>
+  </head>
 
-<body>
-
+  <body>
     <div class="overlay">
+      <header class="background">
+        <nav class="navbar">
+          <h3>
+            <a href="../HTML files/index.html"
+              ><span> Money-Smart </span>Motors
+            </a>
+          </h3>
 
-        <header class="background">
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
 
+        <div class="content">
+          <h1>Welcome to Money-Smart Motors</h1>
 
+          <h3>Please enter your vehicle configuration</h3>
 
-            <nav class="navbar">
-                <h3> <a href="../HTML files/index.html"><span> Money-Smart </span>Motors </a></h3>
+          <label for="Year">Year:</label>
+          <select name="year-of-make" id="year-of-make">
+            <option value="1999">1999</option>
+            <option value="2008">2008</option>
+            <option value="1984">1984</option>
+          </select>
 
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="support.html">Support</a></li>
-                </ul>
-            </nav>
+          <label for="Make">Make:</label>
+          <select name="Make" id="Make">
+            <option value="Mazda">Mazda</option>
+            <option value="Dodge">Dodge</option>
+            <option value="Chevrolet">Chevrolet</option>
+          </select>
+          <label for="Model">Model:</label>
+          <select name="Model" id="Model">
+            <option value="Speed-3">Speed 3</option>
+            <option value="Ram-2500">Ram-2500</option>
+            <option value="K-1500">K-1984</option>
+          </select>
+          <label for="Category">Category:</label>
+          <select name="Category" id="Category">
+            <option value="Belt-Drive">Belt-Drive</option>
+            <option></option>
+            <option value="Accessories">Accessories</option>
+          </select>
+          <label for="Part">Parts:</label>
+          <select name="Part" id="Part">
+            <!-- these are all for the dodge ram 2500 -->
+            <option value="back-glass-deflector">Back glass deflector</option>
+            <option value="bull-bar">Bull Bar</option>
+            <option value="grill-guard">Grill Guard</option>
+            <option value="Hoop-Step">Hoop Step</option>
+            <option value="ladder-rack">Ladder Rack</option>
+            <option value="offRoad-light-bar-mount-kit">
+              Off-road Light Bar Mount Kit
+            </option>
+            <option value="Running-board">Running Board</option>
+            <option value="Running-board-seal">Running Board Seal</option>
+            <option value="side-window-vent">
+              Side Window Vent (in-channell mount)
+            </option>
+            <option value="side-window-vent">
+              Side Window Vent (Outside mount)
+            </option>
+            <option value="tail-gate-cap-protector">
+              Tail Gate Cap protector
+            </option>
+            <option value="tie-down-anchor">Tie-down Anchor</option>
 
-            <div class="content">
-                <h1>Welcome to Money-Smart Motors</h1>
+            <!-- Accessories for teh 2008 Mazda Speed 3: -->
 
-                <h3>Please enter your vehicle configuration</h3>
+            <option value="side-window-vent">Side Window Vent</option>
+            <option value="trailer-hitch">Trailer Hitch</option>
 
-                <label for="Year">Year:</label>
-                <select name="year-of-make" id="year-of-make">
-                    <option value="1999">1999</option>
-                    <option value="2008">2008</option>
-                    <option value="1984">1984</option>
-                </select>
+            <!-- accessories for the 1984 k1500 -->
 
+            <option value="ruinning-board-bracket">
+              Running Board Bracket
+            </option>
+            <option value="trailer-hitch-ball-and-mountkit">
+              Trailer Hitch Ball and Mount kit
+            </option>
+            <option value="truck-bed-bulk-protector">
+              Truck Bed Bulk Protector
+            </option>
+            <option value="truck-bed-side-rail">Truck Bed Side Rail</option>
+            <!-- body and lamp assembly k1500 -->
 
-                <label for="Make">Make:</label>
-                <select name="Make" id="Make">
-                    <option value="Mazda">Mazda</option>
-                    <option value="Dodge">Dodge</option>
-                    <option value="Chevrolet">Chevrolet</option>
-                </select>
-                <label for="Model">Model:</label>
-                <select name="Model" id="Model">
-                    <option value="Speed-3">Speed 3</option>
-                    <option value="Ram-2500">Ram-2500</option>
-                    <option value="K-1500">K-1984</option>
-                </select>
-                <label for="Category">Category:</label>
-                <select name="Category" id="Category">
-                    <option value="Belt-Drive">Belt-Drive
-                    <option>
-                    <option value="Accessories">Accessories</option>
-                </select>
-                <label for="Part">Parts:</label>
-                <select name="Part" id="Part">
-                    <option value="Speed-3">Speed 3</option>
-                    <option value="Ram-2500">Ram-2500</option>
-                    <option value="K-1500">K-1984</option>
-                </select>
-                <a href="outcome.html">
-                    <button class="btn">Submit
+            <option value="air-deflector">Air Deflector</option>
+            <option value="antenna">Antenna</option>
+            <option value="belt-weatherstrip-window-scraper-seal">
+              Belt Weatherstrip/Window Scraper Seal:
+            </option>
+            <option value="body-mount">Body Mount</option>
 
-                    </button>
-                </a>
+            <!-- belt drive dodge -->
+            <option value="belt">Belt</option>
+            <option value="belt-tensioner">Belt Tensioner</option>
+            <option value="idler-puller">Idler Pulley</option>
+            <option value="tensioner-puller">Tensioner Pulley</option>
 
+            <!-- belt drive mazda speed 3 -->
 
-            </div>
-
-        </header>
-
+            <option value="belt-installation-tool">
+              Belt Installation Tool
+            </option>
+            <option value="antenna">Antenna</option>
+          </select>
+          <a href="outcome.html">
+            <button class="btn">Submit</button>
+          </a>
+        </div>
+      </header>
     </div>
 
     <!-- the output template -->
 
     <section id="output">
-        <h3 id="output-header"> Accessories:</h3>
-        <div id="auto-container">
+      <h3 id="output-header">Accessories:</h3>
+      <div id="auto-container">
+        <h3 id="part-name">Hoop Step:</h3>
 
-
-            <h3 id="part-name">Hoop Step:</h3>
-
-            <ul id="part-1">
-                <li>Brand:</li>
-                <li>Price:</li>
-                <li>Part Number:</li>
-            </ul>
-            <ul id="part-2">
-                <li>Brand:</li>
-                <li>Price:</li>
-                <li>Part Number:</li>
-            </ul>
-            <ul id="part-3">
-                <li>Brand:</li>
-                <li>Price:</li>
-                <li>Part Number:</li>
-            </ul>
-            <aside id="sidebar">
-
-            </aside>
-
-        </div>
+        <ul id="part-1">
+          <li>Brand:</li>
+          <li>Price:</li>
+          <li>Part Number:</li>
+        </ul>
+        <ul id="part-2">
+          <li>Brand:</li>
+          <li>Price:</li>
+          <li>Part Number:</li>
+        </ul>
+        <ul id="part-3">
+          <li>Brand:</li>
+          <li>Price:</li>
+          <li>Part Number:</li>
+        </ul>
+        <aside id="sidebar"></aside>
+      </div>
     </section>
-
-
-</body>
-
+  </body>
 </html>
