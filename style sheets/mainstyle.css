@@ -1,159 +1,153 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+#partsOverlay {
+  color: black;
+  z-index: 5;
 }
 
 .background {
-    background-image: url("../images/Mechanic_Wall.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
+  background-image: url("../images/Mechanic_Wall.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
 
 ul {
-    text-decoration: none;
-    list-style: none;
+  text-decoration: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-
-
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .navbar ul {
-    display: flex;
-    padding-bottom: 0;
+  display: flex;
+  padding-bottom: 0;
 }
 
 .navbar li {
-    margin-right: 20px;
-    border: white solid 1.5px;
-    border-radius: 5px;
-    padding: 2px;
-    font-size: 1.25rem;
+  margin-right: 20px;
+  border: white solid 1.5px;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 1.25rem;
 }
 
 .navbar h3 {
-    font-weight: bold;
-    color: white;
-    font-size: 2rem;
-    padding-bottom: 0;
+  font-weight: bold;
+  color: white;
+  font-size: 2rem;
+  padding-bottom: 0;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: 5rem;
 }
 
 .btn {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 #output {
-    margin-top: 100vh;
-
-}
-
-#output-header {
-    text-align: center;
-    font-size: 3rem;
-    text-decoration: underline 3px solid;
-    margin-top: 3.5vh;
-    margin-bottom: 0;
-    background-color: black;
-    color: white;
-
+  position: relative;
+  background-color: white;
+  z-index: 7;
+  margin: auto;
+  margin-top: 14rem;
+  height: 20rem;
+  width: 50rem;
 }
 
 #auto-container {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    background-color: black;
-    color: white;
-    /* grid-gap: 0.5rem; */
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-        "header header"
-        "Box-1 Aside"
-        "Box-2 Aside"
-        "Box-3 Aside";
-
+  margin: 0;
+  padding: 0;
+  display: grid;
+  background-color: white;
+  color: black;
+  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "header header"
+    "Box-1 Box-2"
+    "Box-3 Box-4";
 }
 
 #part-name {
-    grid-area: header;
-    text-align: left;
-    padding-bottom: 0;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    text-decoration: underline solid white;
-
-
+  grid-area: header;
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-decoration: underline solid black 5px;
 }
 
-
 #part-1 {
-    grid-area: Box-1;
-    border: 2px solid white;
-    padding: 1rem 0.2rem;
-    text-align: left;
-    line-height: 2.5rem;
-    border-radius: 5px;
-    color: white;
+  grid-area: Box-1;
+  border: 2px solid black;
+  padding: 1rem 0.2rem;
+  text-align: left;
+  line-height: 2.5rem;
+  border-radius: 5px;
+  color: black;
 }
 
 #part-2 {
-    grid-area: Box-2;
-    border: 2px solid white;
-    padding: 1rem 0.2rem;
-    text-align: left;
-    line-height: 2.5rem;
-    border-radius: 5px;
-    color: white;
+  grid-area: Box-2;
+  border: 2px solid black;
+  padding: 1rem 0.2rem;
+  text-align: left;
+  line-height: 2.5rem;
+  border-radius: 5px;
+  color: black;
 }
 
 #part-3 {
-    grid-area: Box-3;
-    border: 2px solid white;
-    padding: 1rem 0.2rem;
-    text-align: left;
-    line-height: 2.5rem;
-    border-radius: 5px;
-    color: white;
+  grid-area: Box-3;
+  border: 2px solid black;
+  padding: 1rem 0.2rem;
+  text-align: left;
+  line-height: 2.5rem;
+  border-radius: 5px;
+  color: black;
 }
-
-#sidebar {
-    grid-area: Aside;
-    background-image: url(/images/Ratchet_Image.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-    color: white;
+#part-4 {
+  grid-area: Box-4;
+  border: 2px solid black;
+  padding: 1rem 0.2rem;
+  text-align: left;
+  line-height: 2.5rem;
+  border-radius: 5px;
+  color: black;
 }
