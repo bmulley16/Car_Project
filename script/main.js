@@ -11,13 +11,24 @@
 const btn = document.querySelector(".btn");
 const partsOverlay = document.querySelector("#partsOverlay");
 const output = document.querySelector("#output");
+const exit = document.querySelector("#exitPartdisplay");
 
 btn.addEventListener("click", function () {
   partsOverlay.classList.remove("hidden");
   output.classList.remove("hidden");
 });
 
-partsOverlay.addEventListener("click", function () {
+// how to exit the parts set-up display:
+
+const exitBox = function () {
   partsOverlay.classList.add("hidden");
   output.classList.add("hidden");
+};
+
+partsOverlay.addEventListener("click", function () {
+  exitBox();
+});
+
+exit.addEventListener("click", function () {
+  exitBox();
 });

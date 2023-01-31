@@ -13,6 +13,21 @@ body {
   z-index: 5;
 }
 
+#exitPartDisplay {
+  margin: 0 0;
+  color: black;
+  font-weight: bold;
+  position: absolute;
+  left: 47.5rem;
+  top: 1rem;
+  font-size: 1.5rem;
+}
+
+#exitPartDisplay:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .background {
   background-image: url("../images/Mechanic_Wall.jpg");
   background-position: center center;
@@ -81,6 +96,7 @@ a {
 }
 
 #output {
+  border-radius: 4rem;
   position: relative;
   background-color: white;
   z-index: 7;
@@ -88,9 +104,12 @@ a {
   margin-top: 14rem;
   height: 20rem;
   width: 50rem;
+  box-sizing: border-box;
 }
 
 #auto-container {
+  border-radius: 3rem;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   display: grid;
