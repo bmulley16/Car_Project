@@ -5,19 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Money-Smart Motors</title>
-    <link rel="stylesheet" href="./style sheets/mainstyle.css" />
-    <script src="./script/main.js"></script>
+    <link rel="stylesheet" href="./styleSheets/mainstyle.css" />
   </head>
 
   <body>
     <div class="overlay">
-
       <!-- ask emmanuel -->
       <!-- <div id="partOverlay" class="hidden"> -->
         <header class="background">
           <nav class="navbar">
             <h3>
-              <a href="../HTML files/index.html"
+              <a href="./index.html"
                 ><span> Money-Smart </span>Motors
               </a>
             </h3>
@@ -35,22 +33,19 @@
 
             <label for="Year">Year:</label>
             <select name="year-of-make" id="year-of-make">
-              <option value="1999">1999</option>
-              <option value="2008">2008</option>
-              <option value="1984">1984</option>
+              <option value="Choose_year">Choose Year of Make</option>
+             
             </select>
 
             <label for="Make">Make:</label>
             <select name="Make" id="Make">
-              <option value="Mazda">Mazda</option>
-              <option value="Dodge">Dodge</option>
-              <option value="Chevrolet">Chevrolet</option>
+              <option value="Choose_Make">Choose Make</option>
+             
             </select>
             <label for="Model">Model:</label>
             <select name="Model" id="Model">
-              <option value="Speed-3">Speed 3</option>
-              <option value="Ram-2500">Ram-2500</option>
-              <option value="K-1500">K-1984</option>
+              <option value="choose_model">Choose Model</option>
+
             </select>
             <label for="Category">Category:</label>
             <select name="Category" id="Category">
@@ -127,12 +122,13 @@
       </div>
 
       <!-- the output template -->
-<!-- re add the hidden class here -->
-      <section id="output" >
+      <!-- re add the hidden class here -->
+      <section id="output" class="hidden">
         <div id="auto-container">
           <h3 id="part-name">Hoop Step:</h3>
 
-          <p id="exitPartDisplay">X </p>>
+          <p id="exitPartDisplay">X</p>
+          
 
           <ul id="part-1">
             <li>Brand:</li>
@@ -157,5 +153,6 @@
         </div>
       </section>
     </div>
+    <script src="./script/main.js"></script>
   </body>
 </html>
