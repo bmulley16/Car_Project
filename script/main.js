@@ -14,12 +14,13 @@ const yearOfMake = document.querySelector("#year-of-make");
 const makeDropdown = document.querySelector("#Make");
 const makes = ["Mazda", "Dodge", "Chevrolet"];
 const year = [1999, 2008, 1984];
-const category = ["Belt Drive", "Accessories"];
 const carModels = {
   mazda: ["Speed 3"],
   dodge: ["Ram 2500"],
   chevrolet: ["K1500"],
 };
+const categoryDropdown = document.querySelector("#Category");
+const categories = ["Accessories", "Beltdrive"];
 
 // populating loops
 
@@ -64,6 +65,17 @@ makeDropdown.addEventListener("change", function (e) {
       el.textContent = model;
       document.querySelector("#Model").appendChild(el);
     }
+  }
+});
+
+// populating the Category dropdown:
+makeDropdown.addEventListener("change", function () {
+  for (let i = 0; i < categories.length; i++) {
+    let categoryChoice = categories[i];
+    let el = document.createElement("option");
+    el.value = categoryChoice;
+    el.textContent = categoryChoice;
+    categoryDropdown.appendChild(el);
   }
 });
 
