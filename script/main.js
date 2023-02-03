@@ -11,7 +11,6 @@ const partsOverlay = document.querySelector("#partsOverlay");
 const output = document.querySelector("#output");
 const exit = document.querySelector("#exitPartDisplay");
 const yearOfMake = document.querySelector("#year-of-make");
-
 const makeDropdown = document.querySelector("#Make");
 const makes = ["Mazda", "Dodge", "Chevrolet"];
 const year = [1999, 2008, 1984];
@@ -21,6 +20,7 @@ const carModels = {
   dodge: ["Ram 2500"],
   chevrolet: ["K1500"],
 };
+
 // populating loops
 
 // loop for the make:
@@ -42,10 +42,31 @@ makeDropdown.addEventListener("change", function (e) {
     for (let i = 0; i < carModels.mazda.length; i++) {
       let model = carModels.mazda[i];
       let el = document.createElement("option");
+      el.value = model;
+      el.textContent = model;
+      document.querySelector("#Model").appendChild(el);
+    }
+  } else if (makeSelected === "dodge") {
+    console.log("it worked");
+
+    for (let i = 0; i < carModels.dodge.length; i++) {
+      let model = carModels.dodge[i];
+      let el = document.createElement("option");
+      el.value = model;
+      el.textContent = model;
+      document.querySelector("#Model").appendChild(el);
+    }
+  } else if (makeSelected === "chevrolet") {
+    for (let i = 0; i < carModels.chevrolet.length; i++) {
+      let model = carModels.chevrolet[i];
+      let el = document.createElement("option");
+      el.value = model;
+      el.textContent = model;
       document.querySelector("#Model").appendChild(el);
     }
   }
 });
+
 // have event listener that listens to the changes current option of the make dropdown
 makeDropdown.addEventListener("change", function (e) {
   console.log(e.target.value);
