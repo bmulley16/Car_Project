@@ -21,7 +21,10 @@ const carModels = {
 };
 const categoryDropdown = document.querySelector("#Category");
 const categories = ["Accessories", "Beltdrive"];
-
+const mazdaAccessories = ["Side Window Vent", "Trailer Hitch"];
+const mazdaBeltDrive = ["Serpentine Belt", "Timing Belt"];
+// Accessories:
+console.log(Object.values(Mazdaparts));
 // populating loops
 
 // loop for the make:
@@ -36,7 +39,7 @@ for (let i = 0; i < makes.length; i++) {
 // });
 
 // loop for the model:
-
+let makeSelected;
 makeDropdown.addEventListener("change", function (e) {
   const makeSelected = e.target.value.toLocaleLowerCase();
   if (makeSelected === "mazda") {
@@ -68,21 +71,30 @@ makeDropdown.addEventListener("change", function (e) {
   }
 });
 
+//
+
+let categoryChoice;
 // populating the Category dropdown:
-makeDropdown.addEventListener("change", function () {
-  for (let i = 0; i < categories.length; i++) {
-    let categoryChoice = categories[i];
-    let el = document.createElement("option");
-    el.value = categoryChoice;
-    el.textContent = categoryChoice;
-    categoryDropdown.appendChild(el);
+categoryDropdown.addEventListener("change", function () {
+  if (makeSelected == "mazda" && categoryChoice == "Accessories") {
+    for (let i = 0; i < mazdaAccessories.length; i++) {
+      let partsChoice = mazdaAccessories[i];
+      let el = document.createElement("option");
+      el.value = partsChoice;
+      el.textContent = partsChoice;
+      makeDropdown.appendChild(el);
+    }
+  } else if (makeSelected == "mazda" && categoryChoice == "Beltdrive") {
+    for (let i = 0; i < mazdaBeltDrive.length; i++) {
+      let partsChoice = mazdaBeltDrive[i];
+      let el = document.createElement("option");
+      el.value = partsChoice;
+      el.textContent = partsChoice;
+      makeDropdown.appendChild(el);
+    }
   }
 });
 
-// have event listener that listens to the changes current option of the make dropdown
-makeDropdown.addEventListener("change", function (e) {
-  console.log(e.target.value);
-});
 btn.addEventListener("click", function () {
   partsOverlay.classList.remove("hidden");
   output.classList.remove("hidden");
