@@ -10,10 +10,11 @@ const btn = document.querySelector(".btn");
 const partsOverlay = document.querySelector("#partsOverlay");
 const output = document.querySelector("#output");
 const exit = document.querySelector("#exitPartDisplay");
-const yearOfMake = document.querySelector("#year-of-make");
+const yearDropdown = document.querySelector("#year-of-make");
 const makeDropdown = document.querySelector("#Make");
+const partsDropDown = document.querySelector("#Part");
 const makes = ["Mazda", "Dodge", "Chevrolet"];
-const year = [1999, 2008, 1984];
+const years = [1999, 2008, 1984];
 const carModels = {
   mazda: ["Speed 3"],
   dodge: ["Ram 2500"],
@@ -24,9 +25,21 @@ const categories = ["Accessories", "Beltdrive"];
 const mazdaAccessories = ["Side Window Vent", "Trailer Hitch"];
 const mazdaBeltDrive = ["Serpentine Belt", "Timing Belt"];
 // Accessories:
-console.log(Object.values(Mazdaparts));
+
 // populating loops
 
+// year population:
+yearDropdown.addEventListener("click", function () {
+  for (let i = 0; i < years.length; i++) {
+    let yearOfMake = years[i];
+    let el = document.createElement("option");
+    el.value = yearOfMake;
+    el.textContent = yearOfMake;
+    yearDropdown.appendChild(el);
+  }
+});
+
+// });
 // loop for the make:
 
 for (let i = 0; i < makes.length; i++) {
@@ -36,12 +49,12 @@ for (let i = 0; i < makes.length; i++) {
   el.value = make;
   makeDropdown.appendChild(el);
 }
-// });
 
 // loop for the model:
-let makeSelected;
+
 makeDropdown.addEventListener("change", function (e) {
   const makeSelected = e.target.value.toLocaleLowerCase();
+
   if (makeSelected === "mazda") {
     for (let i = 0; i < carModels.mazda.length; i++) {
       let model = carModels.mazda[i];
@@ -73,16 +86,29 @@ makeDropdown.addEventListener("change", function (e) {
 
 //
 
-let categoryChoice;
 // populating the Category dropdown:
+
+makeDropdown.addEventListener("change", function () {
+  for (let i = 0; i < categories.length; i++) {
+    let categoryChoice = categories[i];
+    let el = document.createElement("option");
+    el.value = categoryChoice;
+    el.textContent = categoryChoice;
+    categoryDropdown.appendChild(el);
+  }
+});
+
+// populating the parts dropdown:
 categoryDropdown.addEventListener("change", function () {
-  if (makeSelected == "mazda" && categoryChoice == "Accessories") {
+  let makeSelected = makeDropdown.e;
+  if (makeSelected === "mazda") {
+    console.log("the condition works");
     for (let i = 0; i < mazdaAccessories.length; i++) {
       let partsChoice = mazdaAccessories[i];
       let el = document.createElement("option");
       el.value = partsChoice;
       el.textContent = partsChoice;
-      makeDropdown.appendChild(el);
+      partsDropDown.appendChild(el);
     }
   } else if (makeSelected == "mazda" && categoryChoice == "Beltdrive") {
     for (let i = 0; i < mazdaBeltDrive.length; i++) {
@@ -90,7 +116,7 @@ categoryDropdown.addEventListener("change", function () {
       let el = document.createElement("option");
       el.value = partsChoice;
       el.textContent = partsChoice;
-      makeDropdown.appendChild(el);
+      partsDropDown.appendChild(el);
     }
   }
 });
