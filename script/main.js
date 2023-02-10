@@ -14,27 +14,253 @@ const yearDropdown = document.querySelector("#year-of-make");
 const makeDropdown = document.querySelector("#Make");
 const partsDropDown = document.querySelector("#Part");
 const makes = ["Mazda", "Dodge", "Chevrolet"];
-const years = [1999, 2008, 1984];
+const years = ["1999", "2008", "1984"];
 const carModels = {
   mazda: ["Speed 3"],
   dodge: ["Ram 2500"],
   chevrolet: ["K1500"],
 };
+// const populatingArray = [makes, years, carModels];
+
+const vehicleSetUp = {
+  dodge: {
+    Ram2500: {
+      beltDrive: {
+        belt: {
+          belt1: { 
+            brand:      
+            price:     
+            partNumber:
+          
+          },
+
+            belt2:{
+              brand:      
+              price:     
+              partNumber:
+            },
+        },
+
+        beltTensioner: {
+          beltTensioner1: {
+            brand:      
+            price:     
+            partNumber:
+          },
+
+          beltTensioner2: {
+            brand:      
+            price:     
+            partNumber:
+          }
+
+
+        },
+      },
+
+      accessories: {
+        cabProtector: {
+          
+          cabProtector1: {
+            brand:      
+            price:     
+            partNumber:
+          },
+
+          cabProtector2:{
+            brand:      
+            price:     
+            partNumber:
+          }
+        },
+
+        hoopStep: {
+          
+          hoopStep1:{
+            brand:      
+            price:     
+            partNumber:
+          },
+
+          hoopStep2: {
+            brand:      
+            price:     
+            partNumber:
+          }
+        },
+      },
+    },
+  },
+  chevrolet: {
+    K1500: {
+      beltDrive: {
+        belt: {
+          belt1: { 
+            brand:      
+            price:     
+            partNumber:
+          
+          },
+
+            belt2:{
+              brand:      
+              price:     
+              partNumber:
+            },
+        },
+
+        beltTensioner: {
+          beltTensioner1: {
+            brand:      
+            price:     
+            partNumber:
+          },
+
+          beltTensioner2: {
+            brand:      
+            price:     
+            partNumber:
+          }
+        },
+      },
+
+      accessories: {
+        cabProtector: {
+          cabProtector1: {
+            brand:      
+            price:     
+            partNumber:
+          },
+
+          cabProtector2:{
+            brand:      
+            price:     
+            partNumber:
+          }
+        },
+        
+        hoopStep: {
+          hoopStep1:{
+            brand:      
+            price:     
+            partNumber:
+          },
+
+          hoopStep2: {
+            brand:      
+            price:     
+            partNumber:
+          }
+        },
+      },
+    },
+  },
+
+  mazda: {
+    speed_3: {
+      beltDrive: {
+        belt: {
+          
+          belt1: { 
+            brand:      
+            price:     
+            partNumber:
+          
+          },
+
+            belt2: {
+              brand:      
+              price:     
+              partNumber:
+            },
+        },
+
+        beltTensioner: {
+          beltTensioner1: {
+            brand:      
+            price:     
+            partNumber:
+          },
+
+          beltTensioner2: {
+            brand:      
+            price:     
+            partNumber:
+          }
+        },
+      },
+
+      accessories: {
+        sideWindowVent: {
+
+          vent1:{
+            brand:      
+            price:     
+            partNumber:
+          },
+
+          vent2:{
+            brand:      
+            price:     
+            partNumber:
+          }
+        },
+
+        trailerHitch: {
+         
+          hitch1: {
+            brand:      
+            price:     
+            partNumber:
+
+          },
+
+          hitch2: {
+            brand:      
+            price:     
+            partNumber:
+          }
+
+          
+        },
+      },
+    },
+  },
+};
+
 const categoryDropdown = document.querySelector("#Category");
 const categories = ["Accessories", "Beltdrive"];
 const mazdaAccessories = ["Side Window Vent", "Trailer Hitch"];
 const mazdaBeltDrive = ["Serpentine Belt", "Timing Belt"];
 // Accessories:
 
-// populating loops
+const newObj = {
+  mazda: {
+    models: ["Speed 3"],
+    parts: {
+      speed_3: [],
+    },
+  },
+};
+
+newObj["mazda"];
+
+newObj[makeSelected];
+
+// populating loops function:
+let result;
+let el;
+const populating = function () {
+  let el = document.createElement("option");
+  el.value = result;
+  el.textContent = result;
+};
 
 // year population:
 yearDropdown.addEventListener("click", function () {
   for (let i = 0; i < years.length; i++) {
-    let yearOfMake = years[i];
-    let el = document.createElement("option");
-    el.value = yearOfMake;
-    el.textContent = yearOfMake;
+    let result = years[i];
+    populating();
     yearDropdown.appendChild(el);
   }
 });
@@ -53,7 +279,7 @@ for (let i = 0; i < makes.length; i++) {
 // loop for the model:
 
 makeDropdown.addEventListener("change", function (e) {
-  const makeSelected = e.target.value.toLocaleLowerCase();
+  let makeSelected = e.target.value.toLocaleLowerCase();
 
   if (makeSelected === "mazda") {
     for (let i = 0; i < carModels.mazda.length; i++) {
