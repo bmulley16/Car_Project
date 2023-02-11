@@ -27,66 +27,55 @@ const vehicleSetUp = {
     Ram2500: {
       beltDrive: {
         belt: {
-          belt1: { 
-            brand:      
-            price:     
-            partNumber:
-          
+          belt1: {
+            brand: "ROADMAX",
+            price: 13.98,
+            partNumber: "8K810AP",
           },
 
-            belt2:{
-              brand:      
-              price:     
-              partNumber:
-            },
+          belt2: {
+            brand: "FVP",
+            price: 16.03,
+            partNumber: "810K8",
+          },
         },
 
         beltTensioner: {
           beltTensioner1: {
-            brand:      
-            price:     
-            partNumber:
+            brand: "SKP ",
+            price: 44.47,
+            partNumber: " SK89219",
           },
 
           beltTensioner2: {
-            brand:      
-            price:     
-            partNumber:
-          }
-
-
+            brand: "ULTRA-POWER",
+            price: 59.39,
+            partNumber: "38157 ",
+          },
         },
       },
 
       accessories: {
         cabProtector: {
-          
           cabProtector1: {
-            brand:      
-            price:     
-            partNumber:
+            brand: "ARIES",
+            price: 251.38,
+            partNumber: "111000",
           },
-
-          cabProtector2:{
-            brand:      
-            price:     
-            partNumber:
-          }
         },
 
         hoopStep: {
-          
-          hoopStep1:{
-            brand:      
-            price:     
-            partNumber:
+          hoopStep1: {
+            brand: "Carr",
+            price: 56.48,
+            partNumber: "103991",
           },
 
           hoopStep2: {
-            brand:      
-            price:     
-            partNumber:
-          }
+            brand: "Carr",
+            price: 56.48,
+            partNumber: "114032",
+          },
         },
       },
     },
@@ -95,62 +84,61 @@ const vehicleSetUp = {
     K1500: {
       beltDrive: {
         belt: {
-          belt1: { 
-            brand:      
-            price:     
-            partNumber:
-          
+          belt1: {
+            brand: "ROADMAX",
+            price: 1.23,
+            partNumber: "15405AP ",
           },
 
-            belt2:{
-              brand:      
-              price:     
-              partNumber:
-            },
+          belt2: {
+            brand: "ROADMAX",
+            price: 2.44,
+            partNumber: " 15340AP",
+          },
         },
 
         beltTensioner: {
           beltTensioner1: {
-            brand:      
-            price:     
-            partNumber:
+            brand: "ULTRA-POWER",
+            price: 40.67,
+            partNumber: "38357",
           },
 
           beltTensioner2: {
-            brand:      
-            price:     
-            partNumber:
-          }
+            brand: "GATES",
+            price: 44.47,
+            partNumber: " 38408",
+          },
         },
       },
 
       accessories: {
         cabProtector: {
           cabProtector1: {
-            brand:      
-            price:     
-            partNumber:
+            brand: "DEE ZEE",
+            price: 707.3,
+            partNumber: "DZ95050RB ",
           },
 
-          cabProtector2:{
-            brand:      
-            price:     
-            partNumber:
-          }
+          cabProtector2: {
+            brand: "DEE ZEE ",
+            price: 458.42,
+            partNumber: "DZ95054R ",
+          },
         },
-        
+
         hoopStep: {
-          hoopStep1:{
-            brand:      
-            price:     
-            partNumber:
+          hoopStep1: {
+            brand: "CARR",
+            price: 113.64,
+            partNumber: "103991",
           },
 
           hoopStep2: {
-            brand:      
-            price:     
-            partNumber:
-          }
+            brand: " CARR",
+            price: 245.7,
+            partNumber: "114031",
+          },
         },
       },
     },
@@ -160,68 +148,49 @@ const vehicleSetUp = {
     speed_3: {
       beltDrive: {
         belt: {
-          
-          belt1: { 
-            brand:      
-            price:     
-            partNumber:
-          
+          belt1: {
+            brand: "CADNA",
+            price: 9.67,
+            partNumber: "520K6",
           },
 
-            belt2: {
-              brand:      
-              price:     
-              partNumber:
-            },
+          belt2: {
+            brand: "FVP",
+            price: 13.96,
+            partNumber: "910K6",
+          },
         },
 
         beltTensioner: {
           beltTensioner1: {
-            brand:      
-            price:     
-            partNumber:
+            brand: "ULTRA-POWER",
+            price: 26.42,
+            partNumber: "38408",
           },
 
           beltTensioner2: {
-            brand:      
-            price:     
-            partNumber:
-          }
+            brand: "SKP",
+            price: 29.55,
+            partNumber: "SK89372",
+          },
         },
       },
 
       accessories: {
         sideWindowVent: {
-
-          vent1:{
-            brand:      
-            price:     
-            partNumber:
+          vent1: {
+            brand: "WESTIN",
+            price: 67.51,
+            partNumber: "7257486 ",
           },
-
-          vent2:{
-            brand:      
-            price:     
-            partNumber:
-          }
         },
 
         trailerHitch: {
-         
           hitch1: {
-            brand:      
-            price:     
-            partNumber:
-
+            brand: "DRAW-TITE",
+            price: 217.56,
+            partNumber: "24816",
           },
-
-          hitch2: {
-            brand:      
-            price:     
-            partNumber:
-          }
-
-          
         },
       },
     },
@@ -229,19 +198,6 @@ const vehicleSetUp = {
 };
 
 const categoryDropdown = document.querySelector("#Category");
-const categories = ["Accessories", "Beltdrive"];
-const mazdaAccessories = ["Side Window Vent", "Trailer Hitch"];
-const mazdaBeltDrive = ["Serpentine Belt", "Timing Belt"];
-// Accessories:
-
-const newObj = {
-  mazda: {
-    models: ["Speed 3"],
-    parts: {
-      speed_3: [],
-    },
-  },
-};
 
 newObj["mazda"];
 
