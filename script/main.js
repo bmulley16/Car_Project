@@ -6,6 +6,7 @@
 
 // making a pop up that displays the car parts when submit is clicked
 
+const categoryDropdown = document.querySelector("#Category");
 const btn = document.querySelector(".btn");
 const partsOverlay = document.querySelector("#partsOverlay");
 const output = document.querySelector("#output");
@@ -13,20 +14,15 @@ const exit = document.querySelector("#exitPartDisplay");
 const yearDropdown = document.querySelector("#year-of-make");
 const makeDropdown = document.querySelector("#Make");
 const partsDropDown = document.querySelector("#Part");
-const makes = ["Mazda", "Dodge", "Chevrolet"];
 const years = ["1999", "2008", "1984"];
-const carModels = {
-  mazda: ["Speed 3"],
-  dodge: ["Ram 2500"],
-  chevrolet: ["K1500"],
-};
-// const populatingArray = [makes, years, carModels];
-
+const partCategories = ["Belt Drive", "Accessories"];
+const modelDropDopwn = document.querySelector("#Model");
 const vehicleSetUp = {
-  dodge: {
-    Ram2500: {
-      beltDrive: {
-        belt: {
+  Dodge: {
+    model: "Ram 2500",
+    "Ram 2500": {
+      "Belt Drive": {
+        Belts: {
           belt1: {
             brand: "ROADMAX",
             price: 13.98,
@@ -40,7 +36,7 @@ const vehicleSetUp = {
           },
         },
 
-        beltTensioner: {
+        "Belt Tensioner": {
           beltTensioner1: {
             brand: "SKP ",
             price: 44.47,
@@ -55,8 +51,8 @@ const vehicleSetUp = {
         },
       },
 
-      accessories: {
-        cabProtector: {
+      Accessories: {
+        "Cab Protector": {
           cabProtector1: {
             brand: "ARIES",
             price: 251.38,
@@ -64,7 +60,7 @@ const vehicleSetUp = {
           },
         },
 
-        hoopStep: {
+        "Hoop Step": {
           hoopStep1: {
             brand: "Carr",
             price: 56.48,
@@ -80,10 +76,11 @@ const vehicleSetUp = {
       },
     },
   },
-  chevrolet: {
+  Chevrolet: {
+    model: "K1500",
     K1500: {
-      beltDrive: {
-        belt: {
+      "Belt Drive": {
+        Belts: {
           belt1: {
             brand: "ROADMAX",
             price: 1.23,
@@ -97,7 +94,7 @@ const vehicleSetUp = {
           },
         },
 
-        beltTensioner: {
+        "Belt Tensioner": {
           beltTensioner1: {
             brand: "ULTRA-POWER",
             price: 40.67,
@@ -112,8 +109,8 @@ const vehicleSetUp = {
         },
       },
 
-      accessories: {
-        cabProtector: {
+      Accessories: {
+        "Cab Protector": {
           cabProtector1: {
             brand: "DEE ZEE",
             price: 707.3,
@@ -127,7 +124,7 @@ const vehicleSetUp = {
           },
         },
 
-        hoopStep: {
+        "Hoop Step": {
           hoopStep1: {
             brand: "CARR",
             price: 113.64,
@@ -144,10 +141,11 @@ const vehicleSetUp = {
     },
   },
 
-  mazda: {
-    speed_3: {
-      beltDrive: {
-        belt: {
+  Mazda: {
+    model: "Speed 3",
+    "Speed 3": {
+      "Belt Drive": {
+        Belts: {
           belt1: {
             brand: "CADNA",
             price: 9.67,
@@ -161,7 +159,7 @@ const vehicleSetUp = {
           },
         },
 
-        beltTensioner: {
+        "Belt Tensioner": {
           beltTensioner1: {
             brand: "ULTRA-POWER",
             price: 26.42,
@@ -176,8 +174,8 @@ const vehicleSetUp = {
         },
       },
 
-      accessories: {
-        sideWindowVent: {
+      Accessories: {
+        "Side Window Vent": {
           vent1: {
             brand: "WESTIN",
             price: 67.51,
@@ -185,7 +183,7 @@ const vehicleSetUp = {
           },
         },
 
-        trailerHitch: {
+        "Trailer Hitch": {
           hitch1: {
             brand: "DRAW-TITE",
             price: 217.56,
@@ -197,110 +195,59 @@ const vehicleSetUp = {
   },
 };
 
-const categoryDropdown = document.querySelector("#Category");
-
-newObj["mazda"];
-
-newObj[makeSelected];
-
-// populating loops function:
-let result;
-let el;
-const populating = function () {
-  let el = document.createElement("option");
-  el.value = result;
-  el.textContent = result;
-};
+console.log(Object.keys(vehicleSetUp["Dodge"]["Ram 2500"]));
 
 // year population:
+const make = Object.keys(vehicleSetUp);
+
 yearDropdown.addEventListener("click", function () {
   for (let i = 0; i < years.length; i++) {
     let result = years[i];
-    populating();
+    let el = document.createElement("option");
+    el.value = result;
+    el.textContent = result;
     yearDropdown.appendChild(el);
   }
 });
 
 // });
-// loop for the make:
-
-for (let i = 0; i < makes.length; i++) {
-  let make = makes[i];
-  let el = document.createElement("option");
-  el.textContent = make;
-  el.value = make;
-  makeDropdown.appendChild(el);
-}
-
-// loop for the model:
-
-makeDropdown.addEventListener("change", function (e) {
-  let makeSelected = e.target.value.toLocaleLowerCase();
-
-  if (makeSelected === "mazda") {
-    for (let i = 0; i < carModels.mazda.length; i++) {
-      let model = carModels.mazda[i];
-      let el = document.createElement("option");
-      el.value = model;
-      el.textContent = model;
-      document.querySelector("#Model").appendChild(el);
-    }
-  } else if (makeSelected === "dodge") {
-    console.log("it worked");
-
-    for (let i = 0; i < carModels.dodge.length; i++) {
-      let model = carModels.dodge[i];
-      let el = document.createElement("option");
-      el.value = model;
-      el.textContent = model;
-      document.querySelector("#Model").appendChild(el);
-    }
-  } else if (makeSelected === "chevrolet") {
-    for (let i = 0; i < carModels.chevrolet.length; i++) {
-      let model = carModels.chevrolet[i];
-      let el = document.createElement("option");
-      el.value = model;
-      el.textContent = model;
-      document.querySelector("#Model").appendChild(el);
-    }
+//the make:
+yearDropdown.addEventListener("change", function () {
+  for (let i = 0; i < make.length; i++) {
+    let result = make[i];
+    let el = document.createElement("option");
+    el.value = result;
+    el.textContent = result;
+    makeDropdown.appendChild(el);
   }
 });
 
-//
+console.log(yearDropdown.value);
 
-// populating the Category dropdown:
+makeDropdown.addEventListener("change", function (e) {
+  let makeSelected = e.target.value;
+  let carModel = vehicleSetUp[makeSelected]["model"];
+  let el = document.createElement("option");
+  el.value = carModel;
+  el.textContent = carModel;
+  modelDropDopwn.appendChild(el);
+});
 
-makeDropdown.addEventListener("change", function () {
-  for (let i = 0; i < categories.length; i++) {
-    let categoryChoice = categories[i];
+// category population
+modelDropDopwn.addEventListener("change", function (e) {
+  for (let i = 0; i < partCategories.length; i++) {
+    let categoryItem = partCategories[i];
     let el = document.createElement("option");
-    el.value = categoryChoice;
-    el.textContent = categoryChoice;
+    el.value = categoryItem;
+    el.textContent = categoryItem;
     categoryDropdown.appendChild(el);
   }
 });
 
-// populating the parts dropdown:
-categoryDropdown.addEventListener("change", function () {
-  let makeSelected = makeDropdown.e;
-  if (makeSelected === "mazda") {
-    console.log("the condition works");
-    for (let i = 0; i < mazdaAccessories.length; i++) {
-      let partsChoice = mazdaAccessories[i];
-      let el = document.createElement("option");
-      el.value = partsChoice;
-      el.textContent = partsChoice;
-      partsDropDown.appendChild(el);
-    }
-  } else if (makeSelected == "mazda" && categoryChoice == "Beltdrive") {
-    for (let i = 0; i < mazdaBeltDrive.length; i++) {
-      let partsChoice = mazdaBeltDrive[i];
-      let el = document.createElement("option");
-      el.value = partsChoice;
-      el.textContent = partsChoice;
-      partsDropDown.appendChild(el);
-    }
-  }
+// parts population vehicle specific:
+categoryDropdown.addEventListener("change", function (e) {
+  let categorySelected = e.target.value;
+  console.log(categorySelected);
 });
 
 btn.addEventListener("click", function () {
