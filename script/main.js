@@ -22,57 +22,57 @@ const vehicleSetUp = {
     model: "Ram 2500",
     "Ram 2500": {
       "Belt Drive": {
-        Belts: {
-          belt1: {
+        Belts: [
+          {
             brand: "ROADMAX",
             price: 13.98,
             partNumber: "8K810AP",
           },
 
-          belt2: {
+          {
             brand: "FVP",
             price: 16.03,
             partNumber: "810K8",
           },
-        },
+        ],
 
-        "Belt Tensioner": {
-          beltTensioner1: {
+        "Belt Tensioner": [
+          {
             brand: "SKP ",
             price: 44.47,
             partNumber: " SK89219",
           },
 
-          beltTensioner2: {
+          {
             brand: "ULTRA-POWER",
             price: 59.39,
             partNumber: "38157 ",
           },
-        },
+        ],
       },
 
       Accessories: {
-        "Cab Protector": {
-          cabProtector1: {
+        "Cab Protector": [
+          {
             brand: "ARIES",
             price: 251.38,
             partNumber: "111000",
           },
-        },
+        ],
 
-        "Hoop Step": {
-          hoopStep1: {
+        "Hoop Step": [
+          {
             brand: "Carr",
             price: 56.48,
             partNumber: "103991",
           },
 
-          hoopStep2: {
+          {
             brand: "Carr",
             price: 56.48,
             partNumber: "114032",
           },
-        },
+        ],
       },
     },
   },
@@ -80,63 +80,62 @@ const vehicleSetUp = {
     model: "K1500",
     K1500: {
       "Belt Drive": {
-        Belts: {
-          belt1: {
+        Belts: [
+          {
             brand: "ROADMAX",
             price: 1.23,
             partNumber: "15405AP ",
           },
 
-          belt2: {
+          {
             brand: "ROADMAX",
             price: 2.44,
             partNumber: " 15340AP",
           },
-        },
+        ],
 
-        "Belt Tensioner": {
-          beltTensioner1: {
+        "Belt Tensioner": [
+          {
             brand: "ULTRA-POWER",
             price: 40.67,
             partNumber: "38357",
           },
 
-          beltTensioner2: {
+          {
             brand: "GATES",
             price: 44.47,
             partNumber: " 38408",
           },
-        },
+        ],
       },
 
       Accessories: {
-        "Cab Protector": {
-          cabProtector1: {
+        "Cab Protector": [
+          {
             brand: "DEE ZEE",
             price: 707.3,
             partNumber: "DZ95050RB ",
           },
 
-          cabProtector2: {
+          {
             brand: "DEE ZEE ",
             price: 458.42,
             partNumber: "DZ95054R ",
           },
-        },
+        ],
 
-        "Hoop Step": {
-          hoopStep1: {
+        "Hoop Step": [
+          {
             brand: "CARR",
             price: 113.64,
             partNumber: "103991",
           },
-
-          hoopStep2: {
+          {
             brand: " CARR",
             price: 245.7,
             partNumber: "114031",
           },
-        },
+        ],
       },
     },
   },
@@ -145,51 +144,51 @@ const vehicleSetUp = {
     model: "Speed 3",
     "Speed 3": {
       "Belt Drive": {
-        Belts: {
-          belt1: {
+        Belts: [
+          {
             brand: "CADNA",
             price: 9.67,
             partNumber: "520K6",
           },
 
-          belt2: {
+          {
             brand: "FVP",
             price: 13.96,
             partNumber: "910K6",
           },
-        },
+        ],
 
-        "Belt Tensioner": {
-          beltTensioner1: {
+        "Belt Tensioner": [
+          {
             brand: "ULTRA-POWER",
             price: 26.42,
             partNumber: "38408",
           },
 
-          beltTensioner2: {
+          {
             brand: "SKP",
             price: 29.55,
             partNumber: "SK89372",
           },
-        },
+        ],
       },
 
       Accessories: {
-        "Side Window Vent": {
-          vent1: {
+        "Side Window Vent": [
+          {
             brand: "WESTIN",
             price: 67.51,
             partNumber: "7257486 ",
           },
-        },
+        ],
 
-        "Trailer Hitch": {
-          hitch1: {
+        "Trailer Hitch": [
+          {
             brand: "DRAW-TITE",
             price: 217.56,
             partNumber: "24816",
           },
-        },
+        ],
       },
     },
   },
@@ -246,8 +245,9 @@ modelDropDopwn.addEventListener("change", function (e) {
 
 // parts population vehicle specific:
 categoryDropdown.addEventListener("change", function (e) {
-  let categorySelected = e.target.value;
-  console.log(categorySelected);
+  console.log("modelDropDopwn.value", modelDropDopwn.value);
+  const modelSelected = modelDropDopwn.value;
+  const categorySelected = e.target.value;
 });
 
 btn.addEventListener("click", function () {
