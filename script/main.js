@@ -245,9 +245,18 @@ modelDropDopwn.addEventListener("change", function (e) {
 
 // parts population vehicle specific:
 categoryDropdown.addEventListener("change", function (e) {
-  console.log("modelDropDopwn.value", modelDropDopwn.value);
   const modelSelected = modelDropDopwn.value;
+  const makeSelected = makeDropdown.value;
   const categorySelected = e.target.value;
+  const keys = Object.keys(
+    vehicleSetUp[makeSelected][modelSelected][categorySelected]
+  );
+  for (const part of keys) {
+    let el = document.createElement("option");
+    el.value = part;
+    el.textContent = part;
+    partsDropDown.appendChild(el);
+  }
 });
 
 btn.addEventListener("click", function () {
