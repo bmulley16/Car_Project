@@ -24,29 +24,29 @@ const vehicleSetUp = {
       "Belt Drive": {
         Belts: [
           {
-            brand: "ROADMAX",
-            price: 13.98,
-            partNumber: "8K810AP",
+            Brand: "ROADMAX",
+            Price: 13.98,
+            "Part Number": "8K810AP",
           },
 
           {
-            brand: "FVP",
-            price: 16.03,
-            partNumber: "810K8",
+            Brand: "FVP",
+            Price: 16.03,
+            "Part Number": "810K8",
           },
         ],
 
         "Belt Tensioner": [
           {
-            brand: "SKP ",
-            price: 44.47,
-            partNumber: " SK89219",
+            Brand: "SKP ",
+            Price: 44.47,
+            "Part Number": " SK89219",
           },
 
           {
-            brand: "ULTRA-POWER",
-            price: 59.39,
-            partNumber: "38157 ",
+            Brand: "ULTRA-POWER",
+            Price: 59.39,
+            "Part Number": "38157 ",
           },
         ],
       },
@@ -54,23 +54,23 @@ const vehicleSetUp = {
       Accessories: {
         "Cab Protector": [
           {
-            brand: "ARIES",
-            price: 251.38,
-            partNumber: "111000",
+            Brand: "ARIES",
+            Price: 251.38,
+            "Part Number": "111000",
           },
         ],
 
         "Hoop Step": [
           {
-            brand: "Carr",
-            price: 56.48,
-            partNumber: "103991",
+            Brand: "Carr",
+            Price: 56.48,
+            "Part Number": "103991",
           },
 
           {
-            brand: "Carr",
-            price: 56.48,
-            partNumber: "114032",
+            Brand: "Carr",
+            Price: 56.48,
+            "Part Number": "114032",
           },
         ],
       },
@@ -82,29 +82,29 @@ const vehicleSetUp = {
       "Belt Drive": {
         Belts: [
           {
-            brand: "ROADMAX",
-            price: 1.23,
-            partNumber: "15405AP ",
+            Brand: "ROADMAX",
+            Price: 1.23,
+            "Part Number": "15405AP ",
           },
 
           {
-            brand: "ROADMAX",
-            price: 2.44,
-            partNumber: " 15340AP",
+            Brand: "ROADMAX",
+            Price: 2.44,
+            "Part Number": " 15340AP",
           },
         ],
 
         "Belt Tensioner": [
           {
-            brand: "ULTRA-POWER",
-            price: 40.67,
-            partNumber: "38357",
+            Brand: "ULTRA-POWER",
+            Price: 40.67,
+            "Part Number": "38357",
           },
 
           {
-            brand: "GATES",
-            price: 44.47,
-            partNumber: " 38408",
+            Brand: "GATES",
+            Price: 44.47,
+            "Part Number": " 38408",
           },
         ],
       },
@@ -112,28 +112,28 @@ const vehicleSetUp = {
       Accessories: {
         "Cab Protector": [
           {
-            brand: "DEE ZEE",
-            price: 707.3,
-            partNumber: "DZ95050RB ",
+            Brand: "DEE ZEE",
+            Price: 707.3,
+            "Part Number": "DZ95050RB ",
           },
 
           {
-            brand: "DEE ZEE ",
-            price: 458.42,
-            partNumber: "DZ95054R ",
+            Brand: "DEE ZEE ",
+            Price: 458.42,
+            "Part Number": "DZ95054R ",
           },
         ],
 
         "Hoop Step": [
           {
-            brand: "CARR",
-            price: 113.64,
-            partNumber: "103991",
+            Brand: "CARR",
+            Price: 113.64,
+            "Part Number": "103991",
           },
           {
-            brand: " CARR",
-            price: 245.7,
-            partNumber: "114031",
+            Brand: " CARR",
+            Price: 245.7,
+            "Part Number": "114031",
           },
         ],
       },
@@ -146,29 +146,29 @@ const vehicleSetUp = {
       "Belt Drive": {
         Belts: [
           {
-            brand: "CADNA",
-            price: 9.67,
-            partNumber: "520K6",
+            Brand: "CADNA",
+            Price: 9.67,
+            "Part Number": "520K6",
           },
 
           {
-            brand: "FVP",
-            price: 13.96,
-            partNumber: "910K6",
+            Brand: "FVP",
+            Price: 13.96,
+            "Part Number": "910K6",
           },
         ],
 
         "Belt Tensioner": [
           {
-            brand: "ULTRA-POWER",
-            price: 26.42,
-            partNumber: "38408",
+            Brand: "ULTRA-POWER",
+            Price: 26.42,
+            "Part Number": "38408",
           },
 
           {
-            brand: "SKP",
-            price: 29.55,
-            partNumber: "SK89372",
+            Brand: "SKP",
+            Price: 29.55,
+            "Part Number": "SK89372",
           },
         ],
       },
@@ -176,17 +176,17 @@ const vehicleSetUp = {
       Accessories: {
         "Side Window Vent": [
           {
-            brand: "WESTIN",
-            price: 67.51,
-            partNumber: "7257486 ",
+            Brand: "WESTIN",
+            Price: 67.51,
+            "Part Number": "7257486 ",
           },
         ],
 
         "Trailer Hitch": [
           {
-            brand: "DRAW-TITE",
-            price: 217.56,
-            partNumber: "24816",
+            Brand: "DRAW-TITE",
+            Price: 217.56,
+            "Part Number": "24816",
           },
         ],
       },
@@ -259,9 +259,40 @@ categoryDropdown.addEventListener("change", function (e) {
   }
 });
 
+// the parts output given prvious selection:
 btn.addEventListener("click", function () {
+  // populating the header
+  const h3 = document.createElement("h3");
+  h3.textContent = partsDropDown.value;
+  h3.setAttribute("id", "part-name");
+  const autoContainer = document.getElementById("auto-container");
+  autoContainer.appendChild(h3);
+
+  // populating the boxes:
+
   partsOverlay.classList.remove("hidden");
   output.classList.remove("hidden");
+  const objectValues =
+    vehicleSetUp[makeDropdown.value][modelDropDopwn.value][
+      categoryDropdown.value
+    ][partsDropDown.value];
+
+  console.log(Object.keys(objectValues[0]));
+  console.log(Object.values(objectValues[0]));
+
+  for (let i = 0; i < objectValues.length; i++) {
+    const keys = Object.keys(objectValues[i]);
+    const values = Object.values(objectValues[i]);
+    const ul = document.createElement("ul");
+    ul.setAttribute("id", `part-${i + 1}`);
+    autoContainer.appendChild(ul);
+    for (let j = 0; j < keys.length; j++) {
+      const li = document.createElement("li");
+      li.textContent = `${keys[j]}:" "${values[j]}`;
+      const obtainUl = document.getElementById(`part-${i + 1}`);
+      obtainUl.appendChild(li);
+    }
+  }
 });
 
 // how to exit the parts set-up display:
