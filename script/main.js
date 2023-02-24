@@ -242,6 +242,7 @@ makeDropdown.addEventListener("change", function (e) {
 
 // category population
 modelDropDopwn.addEventListener("click", function (e) {
+  removeOptions(categoryDropdown);
   for (let i = 0; i < partCategories.length; i++) {
     let categoryItem = partCategories[i];
     let el = document.createElement("option");
@@ -303,6 +304,7 @@ btn.addEventListener("click", function () {
     }
   }
 });
+// think I need a change function to delete the output from other parts:
 
 // how to exit the parts set-up display:
 
