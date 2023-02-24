@@ -194,12 +194,20 @@ const vehicleSetUp = {
   },
 };
 
-console.log(Object.keys(vehicleSetUp["Dodge"]["Ram 2500"]));
+// clearing option dropdowns:
+
+function removeOptions(selectElement) {
+  var i,
+    L = selectElement.options.length - 1;
+  for (i = L; i >= 0; i--) {
+    selectElement.remove(i);
+  }
+}
 
 // year population:
 const make = Object.keys(vehicleSetUp);
-
 yearDropdown.addEventListener("click", function () {
+  removeOptions(yearDropdown);
   for (let i = 0; i < years.length; i++) {
     let result = years[i];
     let el = document.createElement("option");
@@ -212,6 +220,7 @@ yearDropdown.addEventListener("click", function () {
 // });
 //the make:
 yearDropdown.addEventListener("change", function () {
+  removeOptions(makeDropdown);
   for (let i = 0; i < make.length; i++) {
     let result = make[i];
     let el = document.createElement("option");
@@ -221,9 +230,8 @@ yearDropdown.addEventListener("change", function () {
   }
 });
 
-console.log(yearDropdown.value);
-
 makeDropdown.addEventListener("change", function (e) {
+  removeOptions(modelDropDopwn);
   let makeSelected = e.target.value;
   let carModel = vehicleSetUp[makeSelected]["model"];
   let el = document.createElement("option");
@@ -233,7 +241,7 @@ makeDropdown.addEventListener("change", function (e) {
 });
 
 // category population
-modelDropDopwn.addEventListener("change", function (e) {
+modelDropDopwn.addEventListener("click", function (e) {
   for (let i = 0; i < partCategories.length; i++) {
     let categoryItem = partCategories[i];
     let el = document.createElement("option");
@@ -245,6 +253,7 @@ modelDropDopwn.addEventListener("change", function (e) {
 
 // parts population vehicle specific:
 categoryDropdown.addEventListener("change", function (e) {
+  removeOptions(partsDropDown);
   const modelSelected = modelDropDopwn.value;
   const makeSelected = makeDropdown.value;
   const categorySelected = e.target.value;
