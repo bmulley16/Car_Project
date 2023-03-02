@@ -11,72 +11,62 @@
   <body>
     <div class="overlay">
       <!-- ask emmanuel -->
-      
-        <header class="background">
-          <nav class="navbar">
-            <h3>
-              <a href="./index.html"
-                ><span> Money-Smart </span>Motors
-              </a>
-            </h3>
 
-            <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="support.html">Support</a></li>
-            </ul>
-          </nav>
+      <header class="background">
+        <nav class="navbar">
+          <h3>
+            <a href="./index.html"><span> Money-Smart </span>Motors </a>
+          </h3>
 
-          <div class="content">
-            <h1 id="title-header">Welcome to Money-Smart Motors</h1>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </nav>
 
-            <h3 id="configuration-header">Please enter your vehicle configuration:</h3>
+        <div class="content">
+          <h1 id="title-header">Welcome to Money-Smart Motors</h1>
 
-            <label for="Year">Year:</label>
-            <select name="year-of-make" id="year-of-make">
-              <option value="Choose_year">Choose Year of Make</option>
-             
-            </select>
+          <h3 id="configuration-header">
+            Please enter your vehicle configuration:
+          </h3>
 
-            <label for="Make">Make:</label>
-            <select name="Make" id="Make">
-              <option value="Choose_Make">Choose Make</option>
-             
-            </select>
+          <label for="Year">Year:</label>
+          <select name="year-of-make" id="year-of-make">
+            <option value="Choose_year">Choose Year of Make</option>
+          </select>
 
+          <label for="Make">Make:</label>
+          <select name="Make" id="Make">
+            <option value="Choose_Make">Choose Make</option>
+          </select>
 
-            <label for="Model">Model:</label>
-            <select name="Model" id="Model">
-              <option value="choose_model">Choose Model</option>
+          <label for="Model">Model:</label>
+          <select name="Model" id="Model">
+            <option value="choose_model">Choose Model</option>
+          </select>
+          <label for="Category">Category:</label>
 
-            </select>
-            <label for="Category">Category:</label>
-            
-            <select name="Category" id="Category">
-              <option>Choose Category</option>
-            
-            </select>
-            <label for="Part">Parts:</label>
-            <select name="Part" id="Part">
-          
-              <option value='pleaseSelectPart'>Select Part</option>
-            
-            </select>
-            <button class="btn">Submit</button>
-          </div>
-        </header>
-      </div>
-
-      <!-- the output template -->
-      <!-- re add the hidden class here -->
-      <section id="output" class="hidden">
-        <div id="auto-container">
-         
-          <p id="exitPartDisplay">X</p>
-          
-        
-      </section>
+          <select name="Category" id="Category">
+            <option>Choose Category</option>
+          </select>
+          <label for="Part">Parts:</label>
+          <select name="Part" id="Part">
+            <option value="pleaseSelectPart">Select Part</option>
+          </select>
+          <button class="btn">Submit</button>
+        </div>
+      </header>
     </div>
-<div id="partsOverlay"></div>
+
+    <!-- the output template -->
+    <!-- re add the hidden class here -->
+    <section id="output" class="hidden">
+      <div id="auto-container"></div>
+
+      <p id="exitPartDisplay">X</p>
+      <div id="partsOverlay"></div>
+    </section>
 
     <script src="./script/main.js"></script>
   </body>

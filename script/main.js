@@ -196,18 +196,19 @@ const vehicleSetUp = {
 
 // clearing option dropdowns:
 
-function removeOptions(selectElement) {
-  var i,
-    L = selectElement.options.length - 1;
-  for (i = L; i >= 0; i--) {
-    selectElement.remove(i);
-  }
-}
+// function removeOptions(selectElement) {
+//   var i,
+//     L = selectElement.options.length - 1;
+//   for (i = L; i >= 0; i--) {
+//     selectElement.remove(i);
+//   }
+// }
 
 // year population:
 const make = Object.keys(vehicleSetUp);
 yearDropdown.addEventListener("click", function () {
-  removeOptions(yearDropdown);
+  // removeOptions(yearDropdown);
+  yearDropdown.innerHTML = " ";
   for (let i = 0; i < years.length; i++) {
     let result = years[i];
     let el = document.createElement("option");
@@ -220,7 +221,7 @@ yearDropdown.addEventListener("click", function () {
 // });
 //the make:
 yearDropdown.addEventListener("change", function () {
-  removeOptions(makeDropdown);
+  makeDropdown.innerHTML = "";
   for (let i = 0; i < make.length; i++) {
     let result = make[i];
     let el = document.createElement("option");
@@ -231,7 +232,7 @@ yearDropdown.addEventListener("change", function () {
 });
 
 makeDropdown.addEventListener("change", function (e) {
-  removeOptions(modelDropDopwn);
+  modelDropDopwn.innerHTML = "";
   let makeSelected = e.target.value;
   let carModel = vehicleSetUp[makeSelected]["model"];
   let el = document.createElement("option");
@@ -242,7 +243,7 @@ makeDropdown.addEventListener("change", function (e) {
 
 // category population
 modelDropDopwn.addEventListener("click", function (e) {
-  removeOptions(categoryDropdown);
+  categoryDropdown.innerHTML = "";
   for (let i = 0; i < partCategories.length; i++) {
     let categoryItem = partCategories[i];
     let el = document.createElement("option");
@@ -254,7 +255,7 @@ modelDropDopwn.addEventListener("click", function (e) {
 
 // parts population vehicle specific:
 categoryDropdown.addEventListener("change", function (e) {
-  removeOptions(partsDropDown);
+  partsDropDown.innerHTML = "";
   const modelSelected = modelDropDopwn.value;
   const makeSelected = makeDropdown.value;
   const categorySelected = e.target.value;
@@ -269,6 +270,8 @@ categoryDropdown.addEventListener("change", function (e) {
   }
 });
 
+// attempt 2 at populating the parts output:
+
 // the parts output given prvious selection:
 btn.addEventListener("click", function () {
   // populating the header
@@ -280,14 +283,13 @@ btn.addEventListener("click", function () {
 
   // populating the boxes:
 
-  partsOverlay.classList.remove("hidden");
   output.classList.remove("hidden");
   const objectValues =
     vehicleSetUp[makeDropdown.value][modelDropDopwn.value][
       categoryDropdown.value
     ][partsDropDown.value];
 
-  console.log(Object.keys(objectValues[0]));
+  console.log(objectValues);
   console.log(Object.values(objectValues[0]));
 
   for (let i = 0; i < objectValues.length; i++) {
@@ -298,19 +300,20 @@ btn.addEventListener("click", function () {
     autoContainer.appendChild(ul);
     for (let j = 0; j < keys.length; j++) {
       const li = document.createElement("li");
-      li.textContent = `${keys[j]}:" "${values[j]}`;
+      li.textContent = `${keys[j]}: ${values[j]}`;
       const obtainUl = document.getElementById(`part-${i + 1}`);
       obtainUl.appendChild(li);
     }
   }
 });
-// think I need a change function to delete the output from other parts:
 
 // how to exit the parts set-up display:
 
 const exitBox = function () {
   partsOverlay.classList.add("hidden");
   output.classList.add("hidden");
+  const autoContainer = document.getElementById("auto-container");
+  autoContainer.innerHTML = " ";
 };
 
 exit.addEventListener("click", function () {
