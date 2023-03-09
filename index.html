@@ -32,37 +32,38 @@
         <h3 id="configuration-header">
           Please enter your vehicle configuration:
         </h3>
-
+        <div id="labelsAndSelected">
         <label for="Year" id="yearLabel">Year:</label>
-        <select name="year-of-make" id="year-of-make">
+        <select name="year-of-make" id="year-of-make" class="selectHover">
           <option value="Choose_year">Choose Year of Make</option>
         </select>
-
+        
         <label for="Make" id="makeLabel">Make:</label>
-        <select name="Make" id="Make">
+        <select name="Make" id="Make" class="selectHover">
           <option value="Choose_Make">Choose Make</option>
         </select>
-
+        
         <label for="Model" id="modelLabel">Model:</label>
-        <select name="Model" id="Model">
+        <select name="Model" id="Model"class="selectHover">
           <option value="choose_model">Choose Model</option>
         </select>
         <label for="Category" id="categoryLabel">Category:</label>
-
-        <select name="Category" id="Category">
+        
+        <select name="Category" id="Category" class="selectHover">
           <option>Choose Category</option>
         </select>
         <label for="Part" id="partLabel">Parts:</label>
-        <select name="Part" id="Part">
+        <select name="Part" id="Part" class="selectHover">
           <option value="pleaseSelectPart">Select Part</option>
         </select>
-        <button class="btn">Submit</button>
+        </div>
+        <button class="btn" class="selectHover">Submit</button>
       </div>
       
       <!-- the output template -->
       <!-- re add the hidden class here -->
-      <section id="output" >
-      <div id="auto-container" ></div>
+      <section id="output" class="" >
+      <div id="auto-container" class="hidden" ></div>
         
         <p id="exitPartDisplay">X</p>
       </section>

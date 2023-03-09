@@ -121,6 +121,11 @@ a {
   color: white;
 }
 
+#labelsAndSelected {
+  display: flex;
+  flex-direction: column;
+}
+
 .content {
   display: inline;
   display: flex;
@@ -128,7 +133,7 @@ a {
   align-items: center;
   justify-content: center;
   color: white;
-  margin-top: 4rem;
+  margin-top: 2rem;
   z-index: 2;
   position: relative;
 
@@ -149,12 +154,14 @@ a {
   top: 2vh;
   background-color: white;
   z-index: 7;
-  height: 20rem;
+  height: 25rem;
   width: 30rem;
   box-sizing: border-box;
 }
 
 #auto-container {
+  height: 100%;
+  width: 100%;
   border-radius: 3rem;
   box-sizing: border-box;
   margin: 0;
@@ -176,9 +183,20 @@ a {
 }
 #configuration-header {
   z-index: 2;
+  line-height: 1.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 2vh;
 }
 
 /* come back here */
+#yearLabel,
+#makeLabel,
+#modelLabel,
+#categoryLabel,
+#partLabel {
+  font-size: 1rem;
+}
+
 #yearLabel,
 #makeLabel,
 #modelLabel,
@@ -190,6 +208,13 @@ a {
 #Make,
 #year-of-make {
   z-index: 2;
+  margin-bottom: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.selectHover:hover {
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 3px -3px rgb(252, 1, 1);
 }
 
 #part-name {
@@ -197,7 +222,7 @@ a {
   grid-area: header;
   text-align: center;
   padding-bottom: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   font-size: 2rem;
   text-decoration: underline solid black 5px;
 }
