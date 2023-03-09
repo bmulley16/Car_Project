@@ -193,22 +193,20 @@ const vehicleSetUp = {
     },
   },
 };
+// functions
 
-// clearing option dropdowns:
-
-// function removeOptions(selectElement) {
-//   var i,
-//     L = selectElement.options.length - 1;
-//   for (i = L; i >= 0; i--) {
-//     selectElement.remove(i);
-//   }
-// }
+const createDefaultOption = function (textContent, dropDown) {
+  const defaultOption = document.createElement("option");
+  defaultOption.textContent = textContent;
+  dropDown.appendChild(defaultOption);
+};
 
 // year population:
-const make = Object.keys(vehicleSetUp);
-yearDropdown.addEventListener("click", function () {
-  // removeOptions(yearDropdown);
+const populateYearDropDown = function () {
   yearDropdown.innerHTML = " ";
+
+  createDefaultOption("Choose Year", yearDropdown);
+
   for (let i = 0; i < years.length; i++) {
     let result = years[i];
     let el = document.createElement("option");
@@ -216,12 +214,17 @@ yearDropdown.addEventListener("click", function () {
     el.textContent = result;
     yearDropdown.appendChild(el);
   }
-});
+};
+
+populateYearDropDown();
 
 // });
 //the make:
+const make = Object.keys(vehicleSetUp);
 yearDropdown.addEventListener("change", function () {
   makeDropdown.innerHTML = "";
+  createDefaultOption("Choose Make", makeDropdown);
+
   for (let i = 0; i < make.length; i++) {
     let result = make[i];
     let el = document.createElement("option");
@@ -233,6 +236,9 @@ yearDropdown.addEventListener("change", function () {
 
 makeDropdown.addEventListener("change", function (e) {
   modelDropDopwn.innerHTML = "";
+
+  createDefaultOption("Choose model", modelDropDopwn);
+
   let makeSelected = e.target.value;
   let carModel = vehicleSetUp[makeSelected]["model"];
   let el = document.createElement("option");
@@ -242,8 +248,10 @@ makeDropdown.addEventListener("change", function (e) {
 });
 
 // category population
-modelDropDopwn.addEventListener("click", function (e) {
+modelDropDopwn.addEventListener("change", function (e) {
   categoryDropdown.innerHTML = "";
+  createDefaultOption("Choose Category", categoryDropdown);
+
   for (let i = 0; i < partCategories.length; i++) {
     let categoryItem = partCategories[i];
     let el = document.createElement("option");
@@ -256,6 +264,8 @@ modelDropDopwn.addEventListener("click", function (e) {
 // parts population vehicle specific:
 categoryDropdown.addEventListener("change", function (e) {
   partsDropDown.innerHTML = "";
+  createDefaultOption("Choose Part", partsDropDown);
+
   const modelSelected = modelDropDopwn.value;
   const makeSelected = makeDropdown.value;
   const categorySelected = e.target.value;
@@ -279,11 +289,12 @@ btn.addEventListener("click", function () {
   h3.textContent = partsDropDown.value;
   h3.setAttribute("id", "part-name");
   const autoContainer = document.getElementById("auto-container");
+  autoContainer.innerHTML = " ";
   autoContainer.appendChild(h3);
 
   // populating the boxes:
-
   output.classList.remove("hidden");
+  autoContainer.classList.remove("hidden");
   const objectValues =
     vehicleSetUp[makeDropdown.value][modelDropDopwn.value][
       categoryDropdown.value
@@ -310,7 +321,6 @@ btn.addEventListener("click", function () {
 // how to exit the parts set-up display:
 
 const exitBox = function () {
-  partsOverlay.classList.add("hidden");
   output.classList.add("hidden");
   const autoContainer = document.getElementById("auto-container");
   autoContainer.innerHTML = " ";
