@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="./styleSheets/mainstyle.css" />
   </head>
 
-  <body>
+  <body class="background">
     <!-- ask emmanuel -->
 
-    <header class="background">
-    <nav class="navbar">
-      <h3>
-        <a href="./index.html"><span id ="navbarBrandColoring"> Money</span> Motors </a>
+    <header>
+      <nav class="navbar">
+        <h3>
+          <a href="./index.html"
+            ><span id="navbarBrandColoring"> Money</span> Motors
+          </a>
         </h3>
 
         <ul>
@@ -26,51 +28,50 @@
 
         <a href="#" id="checkoutLink">Checkout</a>
       </nav>
-      <h1 id="title-header">Welcome to Money Motors:</h1>
-
+    </header>
+    <h1 id="title-header">Welcome to Money Motors:</h1>
+    <div class="contentAndOutput">
       <div class="content">
         <h3 id="configuration-header">
           Please enter your vehicle configuration:
         </h3>
         <div id="labelsAndSelected">
-        <label for="Year" id="yearLabel">Year:</label>
-        <select name="year-of-make" id="year-of-make" class="selectHover">
-          <option value="Choose_year">Choose Year of Make</option>
-        </select>
-        
-        <label for="Make" id="makeLabel">Make:</label>
-        <select name="Make" id="Make" class="selectHover">
-          <option value="Choose_Make">Choose Make</option>
-        </select>
-        
-        <label for="Model" id="modelLabel">Model:</label>
-        <select name="Model" id="Model"class="selectHover">
-          <option value="choose_model">Choose Model</option>
-        </select>
-        <label for="Category" id="categoryLabel">Category:</label>
-        
-        <select name="Category" id="Category" class="selectHover">
-          <option>Choose Category</option>
-        </select>
-        <label for="Part" id="partLabel">Parts:</label>
-        <select name="Part" id="Part" class="selectHover">
-          <option value="pleaseSelectPart">Select Part</option>
-        </select>
+          <label for="Year" id="yearLabel">Year:</label>
+          <select name="year-of-make" id="year-of-make" class="selectHover">
+            <option value="Choose_year">Choose Year of Make</option>
+          </select>
+
+          <label for="Make" id="makeLabel">Make:</label>
+          <select name="Make" id="Make" class="selectHover">
+            <option value="Choose_Make">Choose Make</option>
+          </select>
+
+          <label for="Model" id="modelLabel">Model:</label>
+          <select name="Model" id="Model" class="selectHover">
+            <option value="choose_model">Choose Model</option>
+          </select>
+          <label for="Category" id="categoryLabel">Category:</label>
+
+          <select name="Category" id="Category" class="selectHover">
+            <option>Choose Category</option>
+          </select>
+          <label for="Part" id="partLabel">Parts:</label>
+          <select name="Part" id="Part" class="selectHover">
+            <option value="pleaseSelectPart">Select Part</option>
+          </select>
         </div>
         <button class="btn" class="selectHover">Submit</button>
       </div>
-      
+
       <!-- the output template -->
       <!-- re add the hidden class here -->
-      <section id="output" class="" >
-      <div id="auto-container" class="hidden" ></div>
-        
+      <section id="output" class="">
+        <div id="auto-container" class=""></div>
+
         <p id="exitPartDisplay">X</p>
       </section>
-    
+    </div>
     <div id="Overlay"></div>
     <script src="./script/main.js"></script>
   </body>
-</header>
-  </html>
-  
+</html>

@@ -1,15 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   margin: 0;
   padding: 0;
-  z-index: 2;
 }
 
 .hidden {
   display: none;
 }
 
-#Overlay {
+/* #Overlay {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 0;
@@ -19,7 +22,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-}
+} */
 
 #title-header {
   position: relative;
@@ -49,17 +52,14 @@ body {
   cursor: pointer;
 }
 
-#contentAndContainerFlexbox {
-  display: flex;
-}
-
 .background {
-  background-image: url("../images/Mechanic_Wall.jpg");
+  background: url("../images/Mechanic_Wall.jpg"), rgba(0, 0, 0, 0.6);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 ul {
@@ -76,7 +76,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  z-index: 2;
+
   background-color: rgba(0, 0, 0, 0.2);
   background-image: linear-gradient(
     to bottom,
@@ -89,7 +89,6 @@ a {
 .navbar ul {
   display: flex;
   padding-bottom: 0;
-  z-index: 2;
 }
 
 .navbar li,
@@ -97,7 +96,7 @@ a {
   margin: 0 40px;
   padding: 2px;
   font-size: 1.35rem;
-  z-index: 2;
+
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -115,7 +114,6 @@ a {
   color: white;
   font-size: 2rem;
   padding-bottom: 0;
-  z-index: 2;
 }
 #navbarBrandColoring {
   color: white;
@@ -126,6 +124,13 @@ a {
   flex-direction: column;
 }
 
+.contentAndOutput {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30vh;
+}
+
 .content {
   display: inline;
   display: flex;
@@ -134,29 +139,23 @@ a {
   justify-content: center;
   color: white;
   margin-top: 2rem;
-  z-index: 2;
-  position: relative;
 
-  top: 30vh;
-  height: 20vh;
+  height: 100%;
   width: 36vw;
+  grid-area: Dropdowns;
 }
 
 .btn {
   margin-top: 2rem;
-  z-index: 2;
 }
 
 #output {
   border-radius: 4rem;
-  position: relative;
-  left: 70vw;
-  top: 2vh;
   background-color: white;
-  z-index: 7;
   height: 25rem;
   width: 30rem;
   box-sizing: border-box;
+  grid-area: output;
 }
 
 #auto-container {
@@ -175,14 +174,9 @@ a {
     "header header"
     "Box-1 Box-2"
     "Box-3 Box-4";
+}
 
-  z-index: 2;
-}
-#title-header {
-  z-index: 2;
-}
 #configuration-header {
-  z-index: 2;
   line-height: 1.5rem;
   font-size: 1.25rem;
   margin-bottom: 2vh;
@@ -207,7 +201,6 @@ a {
 #Model,
 #Make,
 #year-of-make {
-  z-index: 2;
   margin-bottom: 5px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -222,7 +215,6 @@ a {
 }
 
 #part-name {
-  z-index: 2;
   grid-area: header;
   text-align: center;
   padding-bottom: 0;
