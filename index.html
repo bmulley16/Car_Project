@@ -35,40 +35,69 @@
         <h3 id="configuration-header">
           Please enter your vehicle configuration:
         </h3>
-        <div id="labelsAndSelected">
-          <label for="Year" id="yearLabel">Year:</label>
-          <select name="year-of-make" id="year-of-make" class="selectHover">
-            <option value="Choose_year">Choose Year of Make</option>
-          </select>
 
-          <label for="Make" id="makeLabel">Make:</label>
-          <select name="Make" id="Make" class="selectHover">
-            <option value="Choose_Make">Choose Make</option>
-          </select>
-
-          <label for="Model" id="modelLabel">Model:</label>
-          <select name="Model" id="Model" class="selectHover">
-            <option value="choose_model">Choose Model</option>
-          </select>
-          <label for="Category" id="categoryLabel">Category:</label>
-
-          <select name="Category" id="Category" class="selectHover">
-            <option>Choose Category</option>
-          </select>
-          <label for="Part" id="partLabel">Parts:</label>
-          <select name="Part" id="Part" class="selectHover">
-            <option value="pleaseSelectPart">Select Part</option>
-          </select>
+        <!-- year drop down -->
+        <div class="select-box" id="year-container">
+          <div class="options-container" id="year-options-container">
+            <div class="option" id="year-options">
+              <input
+                type="radio"
+                class="radio"
+                id="yearOfVehicle"
+                name="year-of-vehicle"
+              />
+              <label for="yearOfVehicle"> Year</label>
+            </div>
+          </div>
+          <div class="selected">Please select the year of the vehicle:</div>
+        </div>
+        <!-- make drop down -->
+        <div class="select-box">
+          <div class="options-container">
+            <div class="option">
+              <input type="radio" class="radio" id="make" name="make" />
+              <label for="make"> Make 1</label>
+            </div>
+          </div>
+          <div class="selected">Please select the make:</div>
+        </div>
+        <!-- model drop down -->
+        <div class="select-box">
+          <div class="options-container">
+            <div class="option">
+              <input type="radio" class="radio" id="model" name="model" />
+              <label for="model"> Model</label>
+            </div>
+          </div>
+          <div class="selected">Please select the model of the vehicle:</div>
+        </div>
+        <!-- category drop down -->
+        <div class="select-box">
+          <div class="options-container">
+            <div class="option">
+              <input type="radio" class="radio" id="category" name="category" />
+              <label for="category"> Parts category</label>
+            </div>
+          </div>
+          <div class="selected">Please select the category:</div>
+        </div>
+        <!-- parts dropdown -->
+        <div class="select-box">
+          <div class="options-container">
+            <div class="option">
+              <input type="radio" class="radio" id="parts" name="parts" />
+              <label for="parts"> parts</label>
+            </div>
+          </div>
+          <div class="selected">Please select the desired part:</div>
         </div>
         <button class="btn" class="selectHover">Submit</button>
       </div>
 
       <!-- the output template -->
       <!-- re add the hidden class here -->
-      <section id="output" class="">
-        <div id="auto-container" class=""></div>
-
-        <p id="exitPartDisplay">X</p>
+      <section id="output" class="hidden">
+        <div id="auto-container" class="hidden"></div>
       </section>
     </div>
     <div id="Overlay"></div>

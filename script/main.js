@@ -1,22 +1,9 @@
 "use strict";
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   console.log("dom has been loaded");
-// });
-
-// making a pop up that displays the car parts when submit is clicked
-
-const categoryDropdown = document.querySelector("#Category");
+const yearOptions = document.querySelector("#year-options");
+const yearOptionsContainer = document.querySelector("#year-options-container");
 const btn = document.querySelector(".btn");
-const partsOverlay = document.querySelector("#partsOverlay");
-const output = document.querySelector("#output");
-const exit = document.querySelector("#exitPartDisplay");
-const yearDropdown = document.querySelector("#year-of-make");
-const makeDropdown = document.querySelector("#Make");
-const partsDropDown = document.querySelector("#Part");
 const years = ["1999", "2008", "1984"];
-const partCategories = ["Belt Drive", "Accessories"];
-const modelDropDopwn = document.querySelector("#Model");
+const yearContainer = document.querySelector("#year-container");
 const vehicleSetUp = {
   Dodge: {
     model: "Ram 2500",
@@ -193,139 +180,203 @@ const vehicleSetUp = {
     },
   },
 };
-// functions
 
-const createDefaultOption = function (textContent, dropDown) {
-  const defaultOption = document.createElement("option");
-  defaultOption.textContent = textContent;
-  dropDown.appendChild(defaultOption);
-};
+// functions:
 
-// year population:
-const populateYearDropDown = function () {
-  yearDropdown.innerHTML = " ";
+// new drop downs:
 
-  createDefaultOption("Choose Year", yearDropdown);
-
-  for (let i = 0; i < years.length; i++) {
-    let result = years[i];
-    let el = document.createElement("option");
-    el.value = result;
-    el.textContent = result;
-    yearDropdown.appendChild(el);
+// populating the year dropdown:
+yearContainer.addEventListener("click", () => {
+  console.log(yearOptionsContainer.childElementCount);
+  // while (yearOptionsContainer.hasChildNodes) {
+  //   yearOptionsContainer.removeChild(yearOptionsContainer.firstChild);
+  // }
+  for (const year of years) {
+    const optionContainer = document.createElement("div");
+    optionContainer.classList.add("option");
+    yearOptionsContainer.appendChild(optionContainer);
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.className = "radio";
+    input.id = year;
+    input.name = year;
+    input.value = year;
+    label.htmlFor = year;
+    label.innerHTML = year;
+    optionContainer.appendChild(input);
+    optionContainer.appendChild(label);
+  }
+});
+const returnValue = function () {
+  if (document.getElementsByClassName("option").checked) {
+    const valuedReturned = document.getElementById("1984").value;
+    return valuedReturned;
   }
 };
 
-populateYearDropDown();
+console.log(returnValue());
 
-// });
-//the make:
-const make = Object.keys(vehicleSetUp);
-yearDropdown.addEventListener("change", function () {
-  makeDropdown.innerHTML = "";
-  createDefaultOption("Choose Make", makeDropdown);
+const selectedAll = document.querySelectorAll(".selected");
 
-  for (let i = 0; i < make.length; i++) {
-    let result = make[i];
-    let el = document.createElement("option");
-    el.value = result;
-    el.textContent = result;
-    makeDropdown.appendChild(el);
-  }
-});
+selectedAll.forEach((selected) => {
+  const optionsContainer = selected.previousElementSibling;
 
-makeDropdown.addEventListener("change", function (e) {
-  modelDropDopwn.innerHTML = "";
+  const optionsList = optionsContainer.querySelectorAll(".option");
 
-  createDefaultOption("Choose model", modelDropDopwn);
+  selected.addEventListener("click", () => {
+    if (optionsContainer.classList.contains("active")) {
+      optionsContainer.classList.remove("active");
+    } else {
+      let currentActive = document.querySelector("options-container.active");
 
-  let makeSelected = e.target.value;
-  let carModel = vehicleSetUp[makeSelected]["model"];
-  let el = document.createElement("option");
-  el.value = carModel;
-  el.textContent = carModel;
-  modelDropDopwn.appendChild(el);
-});
-
-// category population
-modelDropDopwn.addEventListener("change", function (e) {
-  categoryDropdown.innerHTML = "";
-  createDefaultOption("Choose Category", categoryDropdown);
-
-  for (let i = 0; i < partCategories.length; i++) {
-    let categoryItem = partCategories[i];
-    let el = document.createElement("option");
-    el.value = categoryItem;
-    el.textContent = categoryItem;
-    categoryDropdown.appendChild(el);
-  }
-});
-
-// parts population vehicle specific:
-categoryDropdown.addEventListener("change", function (e) {
-  partsDropDown.innerHTML = "";
-  createDefaultOption("Choose Part", partsDropDown);
-
-  const modelSelected = modelDropDopwn.value;
-  const makeSelected = makeDropdown.value;
-  const categorySelected = e.target.value;
-  const keys = Object.keys(
-    vehicleSetUp[makeSelected][modelSelected][categorySelected]
-  );
-  for (const part of keys) {
-    let el = document.createElement("option");
-    el.value = part;
-    el.textContent = part;
-    partsDropDown.appendChild(el);
-  }
-});
-
-// attempt 2 at populating the parts output:
-
-// the parts output given prvious selection:
-btn.addEventListener("click", function () {
-  // populating the header
-  const h3 = document.createElement("h3");
-  h3.textContent = partsDropDown.value;
-  h3.setAttribute("id", "part-name");
-  const autoContainer = document.getElementById("auto-container");
-  autoContainer.innerHTML = " ";
-  autoContainer.appendChild(h3);
-
-  // populating the boxes:
-  output.classList.remove("hidden");
-  autoContainer.classList.remove("hidden");
-  const objectValues =
-    vehicleSetUp[makeDropdown.value][modelDropDopwn.value][
-      categoryDropdown.value
-    ][partsDropDown.value];
-
-  console.log(objectValues);
-  console.log(Object.values(objectValues[0]));
-
-  for (let i = 0; i < objectValues.length; i++) {
-    const keys = Object.keys(objectValues[i]);
-    const values = Object.values(objectValues[i]);
-    const ul = document.createElement("ul");
-    ul.setAttribute("id", `part-${i + 1}`);
-    autoContainer.appendChild(ul);
-    for (let j = 0; j < keys.length; j++) {
-      const li = document.createElement("li");
-      li.textContent = `${keys[j]}: ${values[j]}`;
-      const obtainUl = document.getElementById(`part-${i + 1}`);
-      obtainUl.appendChild(li);
+      if (currentActive) {
+        currentActive.classList.remove("active");
+      }
+      optionsContainer.classList.add("active");
     }
-  }
+  });
+
+  optionsList.forEach((o) => {
+    o.addEventListener("click", () => {
+      selected.innerHTML = o.querySelector("label").innerHTML;
+      optionsContainer.classList.remove("active");
+    });
+  });
 });
+// // functions
 
-// how to exit the parts set-up display:
+// const createDefaultOption = function (textContent, dropDown) {
+//   const defaultOption = document.createElement("option");
+//   defaultOption.textContent = textContent;
+//   dropDown.appendChild(defaultOption);
+// };
 
-const exitBox = function () {
-  output.classList.add("hidden");
-  const autoContainer = document.getElementById("auto-container");
-  autoContainer.innerHTML = " ";
-};
+// // year population:
+// const populateYearDropDown = function () {
+//   yearDropdown.innerHTML = " ";
 
-exit.addEventListener("click", function () {
-  exitBox();
-});
+//   createDefaultOption("Choose Year", yearDropdown);
+
+//   for (let i = 0; i < years.length; i++) {
+//     let result = years[i];
+//     let el = document.createElement("option");
+//     el.value = result;
+//     el.textContent = result;
+//     yearDropdown.appendChild(el);
+//   }
+// };
+
+// populateYearDropDown();
+
+// // });
+// //the make:
+// const make = Object.keys(vehicleSetUp);
+// yearDropdown.addEventListener("change", function () {
+//   makeDropdown.innerHTML = "";
+//   createDefaultOption("Choose Make", makeDropdown);
+
+//   for (let i = 0; i < make.length; i++) {
+//     let result = make[i];
+//     let el = document.createElement("option");
+//     el.value = result;
+//     el.textContent = result;
+//     makeDropdown.appendChild(el);
+//   }
+// });
+
+// makeDropdown.addEventListener("change", function (e) {
+//   modelDropDopwn.innerHTML = "";
+
+//   createDefaultOption("Choose model", modelDropDopwn);
+
+//   let makeSelected = e.target.value;
+//   let carModel = vehicleSetUp[makeSelected]["model"];
+//   let el = document.createElement("option");
+//   el.value = carModel;
+//   el.textContent = carModel;
+//   modelDropDopwn.appendChild(el);
+// });
+
+// // category population
+// modelDropDopwn.addEventListener("change", function (e) {
+//   categoryDropdown.innerHTML = "";
+//   createDefaultOption("Choose Category", categoryDropdown);
+
+//   for (let i = 0; i < partCategories.length; i++) {
+//     let categoryItem = partCategories[i];
+//     let el = document.createElement("option");
+//     el.value = categoryItem;
+//     el.textContent = categoryItem;
+//     categoryDropdown.appendChild(el);
+//   }
+// });
+
+// // parts population vehicle specific:
+// categoryDropdown.addEventListener("change", function (e) {
+//   partsDropDown.innerHTML = "";
+//   createDefaultOption("Choose Part", partsDropDown);
+
+//   const modelSelected = modelDropDopwn.value;
+//   const makeSelected = makeDropdown.value;
+//   const categorySelected = e.target.value;
+//   const keys = Object.keys(
+//     vehicleSetUp[makeSelected][modelSelected][categorySelected]
+//   );
+//   for (const part of keys) {
+//     let el = document.createElement("option");
+//     el.value = part;
+//     el.textContent = part;
+//     partsDropDown.appendChild(el);
+//   }
+// });
+
+// // attempt 2 at populating the parts output:
+
+// // the parts output given prvious selection:
+// btn.addEventListener("click", function () {
+//   // populating the header
+//   const h3 = document.createElement("h3");
+//   h3.textContent = partsDropDown.value;
+//   h3.setAttribute("id", "part-name");
+//   const autoContainer = document.getElementById("auto-container");
+//   autoContainer.innerHTML = " ";
+//   autoContainer.appendChild(h3);
+
+//   // populating the boxes:
+//   output.classList.remove("hidden");
+//   autoContainer.classList.remove("hidden");
+//   const objectValues =
+//     vehicleSetUp[makeDropdown.value][modelDropDopwn.value][
+//       categoryDropdown.value
+//     ][partsDropDown.value];
+
+//   console.log(objectValues);
+//   console.log(Object.values(objectValues[0]));
+
+//   for (let i = 0; i < objectValues.length; i++) {
+//     const keys = Object.keys(objectValues[i]);
+//     const values = Object.values(objectValues[i]);
+//     const ul = document.createElement("ul");
+//     ul.setAttribute("id", `part-${i + 1}`);
+//     autoContainer.appendChild(ul);
+//     for (let j = 0; j < keys.length; j++) {
+//       const li = document.createElement("li");
+//       li.textContent = `${keys[j]}: ${values[j]}`;
+//       const obtainUl = document.getElementById(`part-${i + 1}`);
+//       obtainUl.appendChild(li);
+//     }
+//   }
+// });
+
+// // how to exit the parts set-up display:
+
+// const exitBox = function () {
+//   output.classList.add("hidden");
+//   const autoContainer = document.getElementById("auto-container");
+//   autoContainer.innerHTML = " ";
+// };
+
+// exit.addEventListener("click", function () {
+//   exitBox();
+// });
