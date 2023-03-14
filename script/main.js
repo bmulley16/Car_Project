@@ -1,12 +1,13 @@
 "use strict";
-const yearOptions = document.querySelector("#year-options");
+const selectedAll = document.querySelectorAll(".selected");
 const yearOptionsContainer = document.querySelector("#year-options-container");
 const btn = document.querySelector(".btn");
 const years = ["1999", "2008", "1984"];
 const yearContainer = document.querySelector("#year-container");
+const makes = document.querySelector("#makes");
+const makeDropdown = document.querySelector("#make-container");
 const vehicleSetUp = {
   Dodge: {
-    model: "Ram 2500",
     "Ram 2500": {
       "Belt Drive": {
         Belts: [
@@ -64,7 +65,6 @@ const vehicleSetUp = {
     },
   },
   Chevrolet: {
-    model: "K1500",
     K1500: {
       "Belt Drive": {
         Belts: [
@@ -128,7 +128,6 @@ const vehicleSetUp = {
   },
 
   Mazda: {
-    model: "Speed 3",
     "Speed 3": {
       "Belt Drive": {
         Belts: [
@@ -182,15 +181,32 @@ const vehicleSetUp = {
 };
 
 // functions:
+//  year and make populating function:
 
+// const populate = function (array) {
+//   for (let i = 0; i < array.length; i++) {
+//     let place = i[0];
+//     const optionContainer = document.createElement("div");
+//     optionContainer.classList.add("option");
+//     yearOptionsContainer.appendChild(optionContainer);
+//     const label = document.createElement("label");
+//     const input = document.createElement("input");
+//     input.type = "radio";
+//     input.className = "radio";
+//     input.id = place;
+//     input.name = place;
+//     input.value = place;
+//     label.htmlFor = place;
+//     label.innerHTML = place;
+//     optionContainer.appendChild(input);
+//     optionContainer.appendChild(label);
+//   }
+// };
 // new drop downs:
 
 // populating the year dropdown:
 yearContainer.addEventListener("click", () => {
-  console.log(yearOptionsContainer.childElementCount);
-  // while (yearOptionsContainer.hasChildNodes) {
-  //   yearOptionsContainer.removeChild(yearOptionsContainer.firstChild);
-  // }
+  yearOptionsContainer.innerHTML = "";
   for (const year of years) {
     const optionContainer = document.createElement("div");
     optionContainer.classList.add("option");
@@ -207,43 +223,92 @@ yearContainer.addEventListener("click", () => {
     optionContainer.appendChild(input);
     optionContainer.appendChild(label);
   }
+  optionFunction();
 });
-const returnValue = function () {
-  if (document.getElementsByClassName("option").checked) {
-    const valuedReturned = document.getElementById("1984").value;
-    return valuedReturned;
-  }
-};
 
-console.log(returnValue());
+const optionFunction = function () {
+  const changeSelected = selectedAll.forEach((selected) => {
+    const optionsContainer = selected.previousElementSibling;
 
-const selectedAll = document.querySelectorAll(".selected");
+    const optionsList = optionsContainer.querySelectorAll(".option");
 
-selectedAll.forEach((selected) => {
-  const optionsContainer = selected.previousElementSibling;
+    selected.addEventListener("click", () => {
+      if (optionsContainer.classList.contains("active")) {
+        optionsContainer.classList.remove("active");
+      } else {
+        let currentActive = document.querySelector("options-container.active");
 
-  const optionsList = optionsContainer.querySelectorAll(".option");
-
-  selected.addEventListener("click", () => {
-    if (optionsContainer.classList.contains("active")) {
-      optionsContainer.classList.remove("active");
-    } else {
-      let currentActive = document.querySelector("options-container.active");
-
-      if (currentActive) {
-        currentActive.classList.remove("active");
+        if (currentActive) {
+          currentActive.classList.remove("active");
+        }
+        optionsContainer.classList.add("active");
       }
-      optionsContainer.classList.add("active");
-    }
-  });
+    });
 
-  optionsList.forEach((o) => {
-    o.addEventListener("click", () => {
-      selected.innerHTML = o.querySelector("label").innerHTML;
-      optionsContainer.classList.remove("active");
+    const optionClickEvent = optionsList.forEach((o) => {
+      o.addEventListener("click", () => {
+        console.log("year click worked");
+        selected.innerHTML = o.querySelector("label").innerHTML;
+        optionsContainer.classList.remove("active");
+      });
     });
   });
+};
+// make dropdown:
+const vehicleMakes = Object.keys(vehicleSetUp);
+
+makeDropdown.addEventListener("click", () => {
+  makes.innerHTML = " ";
+  for (const specificMake of vehicleMakes) {
+    const optionContainer = document.createElement("div");
+    optionContainer.classList.add("option");
+    makes.appendChild(optionContainer);
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.className = "radio";
+    input.id = specificMake;
+    input.name = specificMake;
+    input.value = specificMake;
+    label.htmlFor = specificMake;
+    label.innerHTML = specificMake;
+    optionContainer.appendChild(input);
+    optionContainer.appendChild(label);
+  }
+  optionFunction();
 });
+
+// model dropdown
+
+// yearOptionsContainer.addEventListener("click", () => {
+//   // yearOptionsContainer.innerHTML = "";
+//   selectedAll.forEach((selected) => {
+//     const optionsContainer = selected.previousElementSibling;
+
+//     const optionsList = optionsContainer.querySelectorAll(".option");
+
+//     selected.addEventListener("click", () => {
+//       if (optionsContainer.classList.contains("active")) {
+//         optionsContainer.classList.remove("active");
+//       } else {
+//         let currentActive = document.querySelector("options-container.active");
+
+//         if (currentActive) {
+//           currentActive.classList.remove("active");
+//         }
+//         optionsContainer.classList.add("active");
+//       }
+//     });
+
+//     const optionClickEvent = optionsList.forEach((o) => {
+//       o.addEventListener("click", () => {
+//         console.log("year click worked");
+//         selected.innerHTML = o.querySelector("label").innerHTML;
+//         optionsContainer.classList.remove("active");
+//       });
+//     });
+//   });
+// });
 // // functions
 
 // const createDefaultOption = function (textContent, dropDown) {
