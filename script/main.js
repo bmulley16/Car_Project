@@ -207,21 +207,25 @@ const vehicleSetUp = {
 // populating the year dropdown:
 yearContainer.addEventListener("click", () => {
   yearOptionsContainer.innerHTML = "";
+
   for (const year of years) {
     const optionContainer = document.createElement("div");
     optionContainer.classList.add("option");
     yearOptionsContainer.appendChild(optionContainer);
-    const label = document.createElement("label");
+    const createForm = document.createElement("form");
+    createForm.action = "#";
+    optionContainer.appendChild(createForm);
     const input = document.createElement("input");
     input.type = "radio";
     input.className = "radio";
-    input.id = year;
+    input.id = `s+${year}`;
     input.name = year;
     input.value = year;
-    label.htmlFor = year;
+    const label = document.createElement("label");
+    label.htmlFor = `s+${year}`;
     label.innerHTML = year;
-    optionContainer.appendChild(input);
-    optionContainer.appendChild(label);
+    createForm.appendChild(input);
+    createForm.appendChild(label);
   }
   optionFunction();
 });
@@ -256,20 +260,19 @@ const optionFunction = function () {
 };
 // make dropdown:
 const vehicleMakes = Object.keys(vehicleSetUp);
-
 makeDropdown.addEventListener("click", () => {
   makes.innerHTML = " ";
   for (const specificMake of vehicleMakes) {
     const optionContainer = document.createElement("div");
     optionContainer.classList.add("option");
     makes.appendChild(optionContainer);
-    const label = document.createElement("label");
     const input = document.createElement("input");
     input.type = "radio";
     input.className = "radio";
     input.id = specificMake;
-    input.name = specificMake;
+    input.name = "Make";
     input.value = specificMake;
+    const label = document.createElement("label");
     label.htmlFor = specificMake;
     label.innerHTML = specificMake;
     optionContainer.appendChild(input);
@@ -279,6 +282,19 @@ makeDropdown.addEventListener("click", () => {
 });
 
 // model dropdown
+
+const modelDropDopwn = document.querySelector("#model-container");
+modelDropDopwn.addEventListener("click", () => {
+  const makeDropdownOutput = document.querySelector(
+    'input[name="Make"]:checked'
+  );
+  console.log(document.getElementsByName("Make"));
+  // const makeDropdownOutput = document.querySelector(
+  //   'input[name="Make"].checked'
+  // );
+  // console.log(makeDropdownOutput);
+  // console.log("click event worked");
+});
 
 // yearOptionsContainer.addEventListener("click", () => {
 //   // yearOptionsContainer.innerHTML = "";
