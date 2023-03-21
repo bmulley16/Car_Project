@@ -1,11 +1,21 @@
 "use strict";
+const categoryDropdown = document.querySelector("#category-container");
+const category = document.querySelector("#category-options-container");
+const makeSelectedDiv = document.querySelector("#make-selected");
+const modelSelectedDiv = document.querySelector("#model-selected");
+const categorySelectedDiv = document.querySelector("#category-selected");
+const partSelectedDiv = document.querySelector("#part-selected");
 const selectedAll = document.querySelectorAll(".selected");
 const yearOptionsContainer = document.querySelector("#year-options-container");
 const btn = document.querySelector(".btn");
 const years = ["1999", "2008", "1984"];
 const yearContainer = document.querySelector("#year-container");
 const makes = document.querySelector("#makes");
+const model = document.querySelector("#models");
 const makeDropdown = document.querySelector("#make-container");
+const selected = document.querySelector(".selected");
+const partsDropDown = document.querySelector("#parts-container");
+const part = document.querySelector("#parts-options-container");
 const vehicleSetUp = {
   Dodge: {
     "Ram 2500": {
@@ -180,56 +190,7 @@ const vehicleSetUp = {
   },
 };
 
-// functions:
-//  year and make populating function:
-
-// const populate = function (array) {
-//   for (let i = 0; i < array.length; i++) {
-//     let place = i[0];
-//     const optionContainer = document.createElement("div");
-//     optionContainer.classList.add("option");
-//     yearOptionsContainer.appendChild(optionContainer);
-//     const label = document.createElement("label");
-//     const input = document.createElement("input");
-//     input.type = "radio";
-//     input.className = "radio";
-//     input.id = place;
-//     input.name = place;
-//     input.value = place;
-//     label.htmlFor = place;
-//     label.innerHTML = place;
-//     optionContainer.appendChild(input);
-//     optionContainer.appendChild(label);
-//   }
-// };
 // new drop downs:
-
-// populating the year dropdown:
-yearContainer.addEventListener("click", () => {
-  yearOptionsContainer.innerHTML = "";
-
-  for (const year of years) {
-    const optionContainer = document.createElement("div");
-    optionContainer.classList.add("option");
-    yearOptionsContainer.appendChild(optionContainer);
-    const createForm = document.createElement("form");
-    createForm.action = "#";
-    optionContainer.appendChild(createForm);
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.className = "radio";
-    input.id = `s+${year}`;
-    input.name = year;
-    input.value = year;
-    const label = document.createElement("label");
-    label.htmlFor = `s+${year}`;
-    label.innerHTML = year;
-    createForm.appendChild(input);
-    createForm.appendChild(label);
-  }
-  optionFunction();
-});
-
 const optionFunction = function () {
   const changeSelected = selectedAll.forEach((selected) => {
     const optionsContainer = selected.previousElementSibling;
@@ -258,10 +219,43 @@ const optionFunction = function () {
     });
   });
 };
+// populating the year dropdown:
+yearContainer.addEventListener("click", () => {
+  yearOptionsContainer.innerHTML = "";
+
+  for (const year of years) {
+    const optionContainer = document.createElement("div");
+    optionContainer.classList.add("option");
+    yearOptionsContainer.appendChild(optionContainer);
+    const createForm = document.createElement("form");
+    createForm.action = "#";
+    optionContainer.appendChild(createForm);
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.className = "radio";
+    input.id = `s+${year}`;
+    input.name = "year";
+    input.value = year;
+    const label = document.createElement("label");
+    label.htmlFor = `s+${year}`;
+    label.innerHTML = year;
+    createForm.appendChild(input);
+    createForm.appendChild(label);
+  }
+  optionFunction();
+});
+
 // make dropdown:
 const vehicleMakes = Object.keys(vehicleSetUp);
 makeDropdown.addEventListener("click", () => {
   makes.innerHTML = " ";
+  model.innerHTML = " ";
+  category.innerHTML = " ";
+  part.innerHTML = " ";
+  modelSelectedDiv.innerHTML = " please select Model";
+  categorySelectedDiv.innerHTML = "please select parts category";
+  partSelectedDiv.innerHTML = "please select part";
+
   for (const specificMake of vehicleMakes) {
     const optionContainer = document.createElement("div");
     optionContainer.classList.add("option");
@@ -285,172 +279,135 @@ makeDropdown.addEventListener("click", () => {
 
 const modelDropDopwn = document.querySelector("#model-container");
 modelDropDopwn.addEventListener("click", () => {
-  const makeDropdownOutput = document.querySelector(
-    'input[name="Make"]:checked'
-  );
-  console.log(document.getElementsByName("Make"));
-  // const makeDropdownOutput = document.querySelector(
-  //   'input[name="Make"].checked'
-  // );
-  // console.log(makeDropdownOutput);
-  // console.log("click event worked");
+  const selectedMake = makeSelectedDiv.innerHTML;
+  model.innerHTML = " ";
+  category.innerHTML = " ";
+  part.innerHTML = " ";
+  categorySelectedDiv.innerHTML = "please select parts category";
+  partSelectedDiv.innerHTML = "please select part";
+  const modelkeys = Object.keys(vehicleSetUp[selectedMake]);
+
+  for (const selectedModel of modelkeys) {
+    const optionContainer = document.createElement("div");
+    optionContainer.classList.add("option");
+    model.appendChild(optionContainer);
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.className = "radio";
+    input.id = selectedModel;
+    input.name = "Model";
+    input.value = selectedModel;
+    const label = document.createElement("label");
+    label.htmlFor = selectedModel;
+    label.innerHTML = selectedModel;
+    optionContainer.appendChild(input);
+    optionContainer.appendChild(label);
+  }
+  optionFunction();
 });
 
-// yearOptionsContainer.addEventListener("click", () => {
-//   // yearOptionsContainer.innerHTML = "";
-//   selectedAll.forEach((selected) => {
-//     const optionsContainer = selected.previousElementSibling;
+// category dropdown
 
-//     const optionsList = optionsContainer.querySelectorAll(".option");
+categoryDropdown.addEventListener("click", () => {
+  category.innerHTML = " ";
+  category.innerHTML = " ";
+  part.innerHTML = " ";
+  partSelectedDiv.innerHTML = "please select part";
+  const selectedMake = makeSelectedDiv.innerHTML;
+  const selectedModel = modelSelectedDiv.innerHTML;
+  const categoryKeys = Object.keys(vehicleSetUp[selectedMake][selectedModel]);
 
-//     selected.addEventListener("click", () => {
-//       if (optionsContainer.classList.contains("active")) {
-//         optionsContainer.classList.remove("active");
-//       } else {
-//         let currentActive = document.querySelector("options-container.active");
+  for (const selectedCategory of categoryKeys) {
+    const optionContainer = document.createElement("div");
+    optionContainer.classList.add("option");
+    category.appendChild(optionContainer);
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.className = "radio";
+    input.id = selectedCategory;
+    input.name = "category";
+    input.value = selectedCategory;
+    const label = document.createElement("label");
+    label.htmlFor = selectedCategory;
+    label.innerHTML = selectedCategory;
+    optionContainer.appendChild(input);
+    optionContainer.appendChild(label);
+  }
+  optionFunction();
+});
 
-//         if (currentActive) {
-//           currentActive.classList.remove("active");
-//         }
-//         optionsContainer.classList.add("active");
-//       }
-//     });
+// Parts Dropdown:
 
-//     const optionClickEvent = optionsList.forEach((o) => {
-//       o.addEventListener("click", () => {
-//         console.log("year click worked");
-//         selected.innerHTML = o.querySelector("label").innerHTML;
-//         optionsContainer.classList.remove("active");
-//       });
-//     });
-//   });
-// });
-// // functions
+partsDropDown.addEventListener("click", () => {
+  part.innerHTML = " ";
+  const selectedMake = makeSelectedDiv.innerHTML;
+  const selectedModel = modelSelectedDiv.innerHTML;
+  const categorySelected = categorySelectedDiv.innerHTML;
+  const partsKeys = Object.keys(
+    vehicleSetUp[selectedMake][selectedModel][categorySelected]
+  );
+  console.log(partsKeys);
 
-// const createDefaultOption = function (textContent, dropDown) {
-//   const defaultOption = document.createElement("option");
-//   defaultOption.textContent = textContent;
-//   dropDown.appendChild(defaultOption);
-// };
+  for (const selectedParts of partsKeys) {
+    const optionContainer = document.createElement("div");
+    optionContainer.classList.add("option");
+    part.appendChild(optionContainer);
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.className = "radio";
+    input.id = selectedParts;
+    input.name = "parts";
+    input.value = selectedParts;
+    const label = document.createElement("label");
+    label.htmlFor = selectedParts;
+    label.innerHTML = selectedParts;
+    optionContainer.appendChild(input);
+    optionContainer.appendChild(label);
+  }
+  optionFunction();
+});
 
-// // year population:
-// const populateYearDropDown = function () {
-//   yearDropdown.innerHTML = " ";
+// attempt 2 at populating the parts output:
 
-//   createDefaultOption("Choose Year", yearDropdown);
+// the parts output given prvious selection:
+btn.addEventListener("click", function () {
+  // populating the header
+  const h3 = document.createElement("h3");
+  h3.textContent = partSelectedDiv.innerHTML;
+  h3.classList.add("part-name");
+  const autoContainer = document.getElementById("auto-container");
+  autoContainer.innerHTML = " ";
+  autoContainer.appendChild(h3);
 
-//   for (let i = 0; i < years.length; i++) {
-//     let result = years[i];
-//     let el = document.createElement("option");
-//     el.value = result;
-//     el.textContent = result;
-//     yearDropdown.appendChild(el);
-//   }
-// };
+  // populating the boxes:
+  const selectedMake = makeSelectedDiv.innerHTML;
+  const selectedModel = modelSelectedDiv.innerHTML;
+  const categorySelected = categorySelectedDiv.innerHTML;
+  const partSelected = partSelectedDiv.innerHTML;
+  output.classList.remove("hidden");
+  autoContainer.classList.remove("hidden");
+  const objectValues =
+    vehicleSetUp[selectedMake][selectedModel][categorySelected][partSelected];
 
-// populateYearDropDown();
+  console.log(objectValues);
+  console.log(Object.values(objectValues[0]));
 
-// // });
-// //the make:
-// const make = Object.keys(vehicleSetUp);
-// yearDropdown.addEventListener("change", function () {
-//   makeDropdown.innerHTML = "";
-//   createDefaultOption("Choose Make", makeDropdown);
+  for (let i = 0; i < objectValues.length; i++) {
+    const keys = Object.keys(objectValues[i]);
+    const values = Object.values(objectValues[i]);
+    const ul = document.createElement("ul");
+    ul.setAttribute("id", `part-${i + 1}`);
+    autoContainer.appendChild(ul);
+    for (let j = 0; j < keys.length; j++) {
+      const li = document.createElement("li");
+      li.textContent = `${keys[j]}: ${values[j]}`;
+      const obtainUl = document.getElementById(`part-${i + 1}`);
+      obtainUl.appendChild(li);
+    }
+  }
+});
 
-//   for (let i = 0; i < make.length; i++) {
-//     let result = make[i];
-//     let el = document.createElement("option");
-//     el.value = result;
-//     el.textContent = result;
-//     makeDropdown.appendChild(el);
-//   }
-// });
-
-// makeDropdown.addEventListener("change", function (e) {
-//   modelDropDopwn.innerHTML = "";
-
-//   createDefaultOption("Choose model", modelDropDopwn);
-
-//   let makeSelected = e.target.value;
-//   let carModel = vehicleSetUp[makeSelected]["model"];
-//   let el = document.createElement("option");
-//   el.value = carModel;
-//   el.textContent = carModel;
-//   modelDropDopwn.appendChild(el);
-// });
-
-// // category population
-// modelDropDopwn.addEventListener("change", function (e) {
-//   categoryDropdown.innerHTML = "";
-//   createDefaultOption("Choose Category", categoryDropdown);
-
-//   for (let i = 0; i < partCategories.length; i++) {
-//     let categoryItem = partCategories[i];
-//     let el = document.createElement("option");
-//     el.value = categoryItem;
-//     el.textContent = categoryItem;
-//     categoryDropdown.appendChild(el);
-//   }
-// });
-
-// // parts population vehicle specific:
-// categoryDropdown.addEventListener("change", function (e) {
-//   partsDropDown.innerHTML = "";
-//   createDefaultOption("Choose Part", partsDropDown);
-
-//   const modelSelected = modelDropDopwn.value;
-//   const makeSelected = makeDropdown.value;
-//   const categorySelected = e.target.value;
-//   const keys = Object.keys(
-//     vehicleSetUp[makeSelected][modelSelected][categorySelected]
-//   );
-//   for (const part of keys) {
-//     let el = document.createElement("option");
-//     el.value = part;
-//     el.textContent = part;
-//     partsDropDown.appendChild(el);
-//   }
-// });
-
-// // attempt 2 at populating the parts output:
-
-// // the parts output given prvious selection:
-// btn.addEventListener("click", function () {
-//   // populating the header
-//   const h3 = document.createElement("h3");
-//   h3.textContent = partsDropDown.value;
-//   h3.setAttribute("id", "part-name");
-//   const autoContainer = document.getElementById("auto-container");
-//   autoContainer.innerHTML = " ";
-//   autoContainer.appendChild(h3);
-
-//   // populating the boxes:
-//   output.classList.remove("hidden");
-//   autoContainer.classList.remove("hidden");
-//   const objectValues =
-//     vehicleSetUp[makeDropdown.value][modelDropDopwn.value][
-//       categoryDropdown.value
-//     ][partsDropDown.value];
-
-//   console.log(objectValues);
-//   console.log(Object.values(objectValues[0]));
-
-//   for (let i = 0; i < objectValues.length; i++) {
-//     const keys = Object.keys(objectValues[i]);
-//     const values = Object.values(objectValues[i]);
-//     const ul = document.createElement("ul");
-//     ul.setAttribute("id", `part-${i + 1}`);
-//     autoContainer.appendChild(ul);
-//     for (let j = 0; j < keys.length; j++) {
-//       const li = document.createElement("li");
-//       li.textContent = `${keys[j]}: ${values[j]}`;
-//       const obtainUl = document.getElementById(`part-${i + 1}`);
-//       obtainUl.appendChild(li);
-//     }
-//   }
-// });
-
-// // how to exit the parts set-up display:
+// how to exit the parts set-up display:
 
 // const exitBox = function () {
 //   output.classList.add("hidden");

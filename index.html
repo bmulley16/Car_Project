@@ -53,7 +53,7 @@
             </form>
             </div>
           </div>
-          <div class="selected">Please select the year of the vehicle:</div>
+          <div class="selected" id="year-selected">Please select the year of the vehicle:</div>
         </div>
         <!-- make drop down -->
         <div class="select-box" id="make-container">
@@ -63,7 +63,7 @@
               <label for="make"> Make 1</label>
             </div>
           </div>
-          <div class="selected">Please select the make:</div>
+          <div class="selected" id="make-selected">Please select the make:</div>
         </div>
         <!-- model drop down -->
         <div class="select-box" id="model-container">
@@ -73,27 +73,27 @@
               <label for="model"> Model</label>
             </div>
           </div>
-          <div class="selected">Please select the model of the vehicle:</div>
+          <div class="selected" id="model-selected">Please select the model of the vehicle:</div>
         </div>
         <!-- category drop down -->
-        <div class="select-box">
-          <div class="options-container">
+        <div class="select-box" id="category-container">
+          <div class="options-container" id="category-options-container">
             <div class="option">
               <input type="radio" class="radio" id="category" name="category" />
               <label for="category"> Parts category</label>
             </div>
           </div>
-          <div class="selected">Please select the category:</div>
+          <div class="selected" id="category-selected">Please select the category:</div>
         </div>
         <!-- parts dropdown -->
-        <div class="select-box">
-          <div class="options-container">
+        <div class="select-box" id="parts-container">
+          <div class="options-container" id="parts-options-container">
             <div class="option">
               <input type="radio" class="radio" id="parts" name="parts" />
               <label for="parts"> parts</label>
             </div>
           </div>
-          <div class="selected">Please select the desired part:</div>
+          <div class="selected" id="part-selected">Please select the desired part:</div>
         </div>
         <button class="btn" class="selectHover">Submit</button>
       </div>
@@ -101,7 +101,16 @@
       <!-- the output template -->
       <!-- re add the hidden class here -->
       <section id="output" class="hidden">
-        <div id="auto-container" class="hidden"></div>
+        
+        <div id="auto-container" class='hidden'>
+          <h2 class="part-name" > Part Name </h2>
+          <ul id="part-1">
+            <li>Brand:</li>
+            <li>Price:</li>
+            <li>Part Number:</li>
+
+          </ul>
+        </div>
       </section>
     </div>
   

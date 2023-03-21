@@ -1,141 +1,109 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
-.overlay {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-
+body {
+  background-color: darkgray;
 }
-
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+  padding: 1.5rem 3rem;
 }
 
 .navbar ul {
-    display: flex;
-    padding-bottom: 0;
+  display: flex;
+  padding-bottom: 0;
 }
 
-.navbar li {
-    margin-right: 20px;
-    border: white solid 1.5px;
-    border-radius: 5px;
-    padding: 2px;
-    font-size: 1.25rem;
+.navbar li,
+#checkoutLink {
+  margin: 0 40px;
+  padding: 2px;
+  font-size: 1.35rem;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.navbar li:hover {
+  text-decoration: underline solid red 2px;
+  font-weight: bold;
+}
+#checkoutLink:hover {
+  text-decoration: underline solid red 2px;
+  font-weight: bold;
 }
 
 .navbar h3 {
-    font-weight: bold;
-    color: white;
-    font-size: 2rem;
-    padding-bottom: 0;
+  font-weight: bold;
+  color: white;
+  font-size: 2rem;
+  padding-bottom: 0;
+}
+#navbarBrandColoring {
+  color: white;
 }
 
-.intro {
-
-    margin-top: 20rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    color: white;
-    text-align: center;
-    text-decoration: underline solid 3px white;
-
-
-
+#aboutUs-container {
+  display: flex;
+  height: 100vh;
 }
 
-.flex-row {
-    display: flex;
-    flex-direction: row;
-    height: 50vh;
-    width: 100vw;
+.flexItem {
+  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
 }
 
-.header {
-    height: 80vh;
-    width: 100vw;
-    background-image: url("/images/GuyFixingCar.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+#side-image {
+  background-image: url(/images/tyler-clemmensen-4gSavS9pe1s-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-
-    background-color: lightgray;
+#aboutUs-Writeup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
 }
 
-
-.flex-column h2 {
-    margin-bottom: 3rem;
-    font-size: 5rem;
-    text-decoration: underline solid 3px;
-
+#aboutus-header {
+  color: white;
+  padding-bottom: 5rem;
+  font-size: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: underline solid 3px;
 }
 
-#vision {
-
-    font-size: 2rem;
-    text-align: left;
-}
-
-.last {
-    display: flex;
-    flex-direction: row-reverse;
-    height: 50vh;
-    width: 100vw;
-
-}
-
-
-.flex-column2 {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    max-width: 50%;
-
-    background-color: lightgray;
-}
-
-.flex-column2 h2 {
-    margin-bottom: 3rem;
-    font-size: 5rem;
-    text-decoration: underline solid 3px;
-
-}
-
-#Goal {
-    font-size: 2rem;
-    text-align: left;
-}
-
-.last image {
-    max-width: 100%;
+#aboutUs-Paragraph {
+  color: white;
+  line-height: 1.5;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
+  font-size: large;
 }

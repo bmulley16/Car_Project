@@ -99,9 +99,9 @@ body {
   cursor: pointer;
 }
 
-/* .select-box .option .radio {
+.select-box .option .radio {
   display: hidden;
-} */
+}
 
 /* #Overlay {
   position: absolute;
@@ -153,14 +153,14 @@ body {
   position: relative;
 }
 
-.background::before {
+/* .background::before {
   background-color: rgba(0, 0, 0, 0.4);
   content: "";
   display: block;
   height: 100%;
   position: absolute;
   width: 100%;
-}
+} */
 
 ul {
   text-decoration: none;
@@ -303,29 +303,6 @@ a {
   margin-bottom: 2vh;
 }
 
-/* come back here */
-#yearLabel,
-#makeLabel,
-#modelLabel,
-#categoryLabel,
-#partLabel {
-  font-size: 1rem;
-}
-
-#yearLabel,
-#makeLabel,
-#modelLabel,
-#categoryLabel,
-#partLabel,
-#Part,
-#Category,
-#Model,
-#Make,
-#year-of-make {
-  margin-bottom: 5px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
 .selectHover {
   width: 140px;
 }
@@ -335,7 +312,7 @@ a {
   box-shadow: 3px -3px rgb(252, 1, 1);
 }
 
-#part-name {
+.part {
   grid-area: header;
   text-align: center;
   padding-bottom: 0;
