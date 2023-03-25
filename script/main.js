@@ -9,6 +9,7 @@ const selectedAll = document.querySelectorAll(".selected");
 const yearOptionsContainer = document.querySelector("#year-options-container");
 const btn = document.querySelector(".btn");
 const years = ["1999", "2008", "1984"];
+const selectedYear = document.querySelector("#year-selected");
 const yearContainer = document.querySelector("#year-container");
 const makes = document.querySelector("#makes");
 const model = document.querySelector("#models");
@@ -191,6 +192,7 @@ const vehicleSetUp = {
 };
 
 // new drop downs:
+
 const optionFunction = function () {
   const changeSelected = selectedAll.forEach((selected) => {
     const optionsContainer = selected.previousElementSibling;
@@ -219,28 +221,47 @@ const optionFunction = function () {
     });
   });
 };
+
+const dropDownFunction = (selectbox, inputAndLabelConfig, nameconfig) => {
+  const optionContainer = document.createElement("div");
+  optionContainer.classList.add("option");
+  selectbox.appendChild(optionContainer);
+  const input = document.createElement("input");
+  input.type = "radio";
+  input.className = "radio";
+  input.id = inputAndLabelConfig;
+  input.name = nameconfig;
+  input.value = inputAndLabelConfig;
+  const label = document.createElement("label");
+  label.htmlFor = inputAndLabelConfig;
+  label.innerHTML = inputAndLabelConfig;
+  optionContainer.appendChild(input);
+  optionContainer.appendChild(label);
+};
+
+const resetDropdownFunction = (
+  make,
+  model,
+  category,
+  part,
+  selectedDivModel,
+  selectedDivCategory,
+  selectedDivParts
+) => {
+  make.innerHTML = " ";
+  model.innerHTML = " ";
+  category.innerHTML = " ";
+  part.innerHTML = " ";
+  selectedDivModel.innerHTML = " Please select the model of the vehicle:";
+  selectedDivCategory.innerHTML = "Please select the category:";
+  selectedDivParts.innerHTML = "Please select the desired part:";
+};
 // populating the year dropdown:
 yearContainer.addEventListener("click", () => {
   yearOptionsContainer.innerHTML = "";
 
   for (const year of years) {
-    const optionContainer = document.createElement("div");
-    optionContainer.classList.add("option");
-    yearOptionsContainer.appendChild(optionContainer);
-    const createForm = document.createElement("form");
-    createForm.action = "#";
-    optionContainer.appendChild(createForm);
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.className = "radio";
-    input.id = `s+${year}`;
-    input.name = "year";
-    input.value = year;
-    const label = document.createElement("label");
-    label.htmlFor = `s+${year}`;
-    label.innerHTML = year;
-    createForm.appendChild(input);
-    createForm.appendChild(label);
+    dropDownFunction(yearOptionsContainer, year, "year-of-vehicle");
   }
   optionFunction();
 });
@@ -257,20 +278,7 @@ makeDropdown.addEventListener("click", () => {
   partSelectedDiv.innerHTML = "please select part";
 
   for (const specificMake of vehicleMakes) {
-    const optionContainer = document.createElement("div");
-    optionContainer.classList.add("option");
-    makes.appendChild(optionContainer);
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.className = "radio";
-    input.id = specificMake;
-    input.name = "Make";
-    input.value = specificMake;
-    const label = document.createElement("label");
-    label.htmlFor = specificMake;
-    label.innerHTML = specificMake;
-    optionContainer.appendChild(input);
-    optionContainer.appendChild(label);
+    dropDownFunction(makes, specificMake, "Make");
   }
   optionFunction();
 });
@@ -288,20 +296,7 @@ modelDropDopwn.addEventListener("click", () => {
   const modelkeys = Object.keys(vehicleSetUp[selectedMake]);
 
   for (const selectedModel of modelkeys) {
-    const optionContainer = document.createElement("div");
-    optionContainer.classList.add("option");
-    model.appendChild(optionContainer);
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.className = "radio";
-    input.id = selectedModel;
-    input.name = "Model";
-    input.value = selectedModel;
-    const label = document.createElement("label");
-    label.htmlFor = selectedModel;
-    label.innerHTML = selectedModel;
-    optionContainer.appendChild(input);
-    optionContainer.appendChild(label);
+    dropDownFunction(model, selectedModel, "Model");
   }
   optionFunction();
 });
@@ -318,20 +313,7 @@ categoryDropdown.addEventListener("click", () => {
   const categoryKeys = Object.keys(vehicleSetUp[selectedMake][selectedModel]);
 
   for (const selectedCategory of categoryKeys) {
-    const optionContainer = document.createElement("div");
-    optionContainer.classList.add("option");
-    category.appendChild(optionContainer);
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.className = "radio";
-    input.id = selectedCategory;
-    input.name = "category";
-    input.value = selectedCategory;
-    const label = document.createElement("label");
-    label.htmlFor = selectedCategory;
-    label.innerHTML = selectedCategory;
-    optionContainer.appendChild(input);
-    optionContainer.appendChild(label);
+    dropDownFunction(category, selectedCategory, "category");
   }
   optionFunction();
 });
@@ -349,20 +331,7 @@ partsDropDown.addEventListener("click", () => {
   console.log(partsKeys);
 
   for (const selectedParts of partsKeys) {
-    const optionContainer = document.createElement("div");
-    optionContainer.classList.add("option");
-    part.appendChild(optionContainer);
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.className = "radio";
-    input.id = selectedParts;
-    input.name = "parts";
-    input.value = selectedParts;
-    const label = document.createElement("label");
-    label.htmlFor = selectedParts;
-    label.innerHTML = selectedParts;
-    optionContainer.appendChild(input);
-    optionContainer.appendChild(label);
+    dropDownFunction(part, selectedParts, "parts");
   }
   optionFunction();
 });
@@ -371,7 +340,27 @@ partsDropDown.addEventListener("click", () => {
 
 // the parts output given prvious selection:
 btn.addEventListener("click", function () {
+  const yearOutput = selectedYear.innerHTML;
+  const selectedMake = makeSelectedDiv.innerHTML;
+  const selectedModel = modelSelectedDiv.innerHTML;
+  const categorySelected = categorySelectedDiv.innerHTML;
+  const partSelected = partSelectedDiv.innerHTML;
   // populating the header
+
+  // if ((yearOutput.innerHTML = "Please select the year of the vehicle:")) {
+  //   alert("Please complete the form ");
+  // } else if ((selectedMake.innerHTML = "Please select the make:")) {
+  //   alert("Please complete the form");
+  // } else if (
+  //   (selectedModel.innerHTML = "Please select the model of the vehicle:")
+  // ) {
+  //   alert("Please complete the form");
+  // } else if ((categorySelected.innerHTML = "Please select the category:")) {
+  //   alert("PLease complete the form");
+  // } else if ((partSelected.innerHTML = "Please select the desired part:")) {
+  //   alert("Please complete the form");
+  // }
+
   const h3 = document.createElement("h3");
   h3.textContent = partSelectedDiv.innerHTML;
   h3.classList.add("part-name");
@@ -380,10 +369,7 @@ btn.addEventListener("click", function () {
   autoContainer.appendChild(h3);
 
   // populating the boxes:
-  const selectedMake = makeSelectedDiv.innerHTML;
-  const selectedModel = modelSelectedDiv.innerHTML;
-  const categorySelected = categorySelectedDiv.innerHTML;
-  const partSelected = partSelectedDiv.innerHTML;
+
   output.classList.remove("hidden");
   autoContainer.classList.remove("hidden");
   const objectValues =
@@ -409,12 +395,8 @@ btn.addEventListener("click", function () {
 
 // how to exit the parts set-up display:
 
-// const exitBox = function () {
-//   output.classList.add("hidden");
-//   const autoContainer = document.getElementById("auto-container");
-//   autoContainer.innerHTML = " ";
-// };
-
-// exit.addEventListener("click", function () {
-//   exitBox();
-// });
+const exitBox = function () {
+  output.classList.add("hidden");
+  const autoContainer = document.getElementById("auto-container");
+  autoContainer.innerHTML = " ";
+};

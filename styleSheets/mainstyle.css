@@ -312,7 +312,7 @@ a {
   box-shadow: 3px -3px rgb(252, 1, 1);
 }
 
-.part {
+.part-name {
   grid-area: header;
   text-align: center;
   padding-bottom: 0;
