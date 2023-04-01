@@ -244,52 +244,67 @@ const dropDownFunction = (selectbox, inputAndLabelConfig, nameconfig) => {
 };
 const dropdownOptionsArray = [
   {
-    makes: {
-      makeSelectedDiv: "Please select the make:",
-    },
+    container: makes,
+    label: makeSelectedDiv,
+    labelText: "Please select the make:",
   },
 
   {
-    models: {
-      modelSelectedDiv: "Please select Model:",
-    },
+    container: model,
+    label: modelSelectedDiv,
+    labelText: "Please select the model of the vehicle:",
   },
 
   {
-    category: {
-      categorySelectedDiv: "Please select parts category:",
-    },
+    container: category,
+    label: categorySelectedDiv,
+    labelText: "Please select the category:",
   },
 
   {
-    part: {
-      partSelectedDiv: "Please select part:",
-    },
+    container: part,
+    label: partSelectedDiv,
+    labelText: "Please select the desired part:",
   },
 ];
 
 const resetDropDownValues = (dropdownOptions) => {
-  const [a, b, c, d] = dropdownOptionsArray;
-  const resturcturedObjects = [a, b, c, d];
   dropdownOptions.forEach((value) => {
-    let objKeys = Object.keys(value);
-    console.log(objKeys);
-    const objKeysVariable = window[Object.keys(value)];
-    console.log(objKeysVariable);
-    // objKeysVariable.innerHTML = " ";
-    // ask emmanual:
-
-    resturcturedObjects.forEach((o) => {
-      console.log(o[objKeys]);
-      // let p = o[objKeys];
-      // let nestedObjectKeys = Object.keys(p);
-      // let innerHTML =
-    });
+    const container = value.container;
+    container.innerHTML = "";
+    const labelSelector = value.label;
+    labelSelector.innerHTML = value.labelText;
   });
 };
 // populating the year dropdown:
 yearContainer.addEventListener("click", () => {
-  resetDropDownValues(dropdownOptionsArray);
+  yearOptionsContainer.innerHTML = "";
+  resetDropDownValues([
+    {
+      container: makes,
+      label: makeSelectedDiv,
+      labelText: "Please select the make:",
+    },
+
+    {
+      container: model,
+      label: modelSelectedDiv,
+      labelText: "Please select the model of the vehicle:",
+    },
+
+    {
+      container: category,
+      label: categorySelectedDiv,
+      labelText: "Please select the category:",
+    },
+
+    {
+      container: part,
+      label: partSelectedDiv,
+      labelText: "Please select the desired part:",
+    },
+  ]);
+
   for (const year of years) {
     dropDownFunction(yearOptionsContainer, year, "year-of-vehicle");
   }
@@ -299,9 +314,27 @@ yearContainer.addEventListener("click", () => {
 // make dropdown:
 const vehicleMakes = Object.keys(vehicleSetUp);
 makeDropdown.addEventListener("click", () => {
-  modelSelectedDiv.innerHTML = " please select Model";
-  categorySelectedDiv.innerHTML = "please select parts category";
-  partSelectedDiv.innerHTML = "please select part";
+  makes.innerHTML = " ";
+
+  resetDropDownValues([
+    {
+      container: model,
+      label: modelSelectedDiv,
+      labelText: "Please select the model of the vehicle:",
+    },
+
+    {
+      container: category,
+      label: categorySelectedDiv,
+      labelText: "Please select the category:",
+    },
+
+    {
+      container: part,
+      label: partSelectedDiv,
+      labelText: "Please select the desired part:",
+    },
+  ]);
 
   for (const specificMake of vehicleMakes) {
     dropDownFunction(makes, specificMake, "Make");
@@ -313,10 +346,22 @@ makeDropdown.addEventListener("click", () => {
 
 const modelDropDopwn = document.querySelector("#model-container");
 modelDropDopwn.addEventListener("click", () => {
-  const selectedMake = makeSelectedDiv.innerHTML;
+  model.innerHTML = " ";
+  resetDropDownValues([
+    {
+      container: category,
+      label: categorySelectedDiv,
+      labelText: "Please select the category:",
+    },
 
-  categorySelectedDiv.innerHTML = "please select parts category";
-  partSelectedDiv.innerHTML = "please select part";
+    {
+      container: part,
+      label: partSelectedDiv,
+      labelText: "Please select the desired part:",
+    },
+  ]);
+
+  const selectedMake = makeSelectedDiv.innerHTML;
   const modelkeys = Object.keys(vehicleSetUp[selectedMake]);
 
   for (const selectedModel of modelkeys) {
@@ -328,7 +373,14 @@ modelDropDopwn.addEventListener("click", () => {
 // category dropdown
 
 categoryDropdown.addEventListener("click", () => {
-  partSelectedDiv.innerHTML = "please select part";
+  category.innerHTML = " ";
+  resetDropDownValues([
+    {
+      container: part,
+      label: partSelectedDiv,
+      labelText: "Please select the desired part:",
+    },
+  ]);
   const selectedMake = makeSelectedDiv.innerHTML;
   const selectedModel = modelSelectedDiv.innerHTML;
   const categoryKeys = Object.keys(vehicleSetUp[selectedMake][selectedModel]);
@@ -349,7 +401,6 @@ partsDropDown.addEventListener("click", () => {
   const partsKeys = Object.keys(
     vehicleSetUp[selectedMake][selectedModel][categorySelected]
   );
-  console.log(partsKeys);
 
   for (const selectedParts of partsKeys) {
     dropDownFunction(part, selectedParts, "parts");
@@ -367,27 +418,30 @@ btn.addEventListener("click", function () {
   const categorySelected = categorySelectedDiv.innerHTML;
   const partSelected = partSelectedDiv.innerHTML;
   // populating the header
-
+  console.log("selectedMake", selectedMake);
   // form validation:
-  let yearAlert = "Please select the year of the vehicle:";
-  let makeAlert = "Please select the make:";
-  let modelAlert = "Please select the model of the vehicle:";
-  let categoryAlert = "Please select the category:";
-  let partAlert = "Please select the desired part:";
 
-  if (yearOutput.innerHTML == yearAlert) {
+  // avoid the hard code and use the variables above instead:
+
+  let yearAlert = "Please select the year of the vehicle:";
+  let makeAlert = dropdownOptionsArray[0].labelText;
+  let modelAlert = dropdownOptionsArray[1].labelText;
+  let categoryAlert = dropdownOptionsArray[2].labelText;
+  let partAlert = dropdownOptionsArray[3].labelText;
+
+  if (yearOutput == yearAlert) {
     alert("Please complete the form ");
     return;
-  } else if (selectedMake.innerHTML == makeAlert) {
+  } else if (selectedMake == makeAlert) {
     alert("Please complete the form");
     return;
-  } else if (selectedModel.innerHTML == modelAlert) {
+  } else if (selectedModel == modelAlert) {
     alert("Please complete the form");
     return;
-  } else if (categorySelected.innerHTML == categoryAlert) {
+  } else if (categorySelected == categoryAlert) {
     alert("PLease complete the form");
     return;
-  } else if (partSelected.innerHTML == partAlert) {
+  } else if (partSelected == partAlert) {
     alert("Please complete the form");
     return;
   }
