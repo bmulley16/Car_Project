@@ -429,20 +429,14 @@ btn.addEventListener("click", function () {
   let categoryAlert = dropdownOptionsArray[2].labelText;
   let partAlert = dropdownOptionsArray[3].labelText;
 
-  if (yearOutput == yearAlert) {
+  if (
+    yearOutput == yearAlert ||
+    selectedMake == makeAlert ||
+    selectedModel == modelAlert ||
+    categorySelected == categoryAlert ||
+    partSelected == partAlert
+  ) {
     alert("Please complete the form ");
-    return;
-  } else if (selectedMake == makeAlert) {
-    alert("Please complete the form");
-    return;
-  } else if (selectedModel == modelAlert) {
-    alert("Please complete the form");
-    return;
-  } else if (categorySelected == categoryAlert) {
-    alert("PLease complete the form");
-    return;
-  } else if (partSelected == partAlert) {
-    alert("Please complete the form");
     return;
   }
 
