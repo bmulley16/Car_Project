@@ -7,7 +7,7 @@ Money-Smart Motors was designed to obtain price and parts data on cars to helpmi
 
 The motivation behind this project was to create an application that would allow me to source various car parts to implement on my various vehicles when faicing budget constraints. Ultimatley, optimaizing my purchasing power and the distance my dollar goes when sourcing car parts.
 
-<h1> 🛠 &nbsp;Built With</h1>
+<h1>&nbsp;Built With:</h1>
 
  &nbsp;
   ![HTML5](https://img.shields.io/badge/-HTML5-333333?style=flat&logo=HTML5)
