@@ -1,7 +1,7 @@
 
 <h1>Description:</h1>
 
-Money-Smart Motors was designed to obtain price and parts data on cars to helpminimize maintenence costs. 
+Money-Smart Motors was designed to obtain price and parts data on cars to helpminimize maintenence costs on my personal vehicles. 
 
 <h1>Motivation:</h1>
 
