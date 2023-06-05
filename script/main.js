@@ -195,6 +195,8 @@ const vehicleSetUp = {
   },
 };
 
+const contentDiv = document.querySelector(".content");
+
 // new drop downs:
 
 const optionFunction = function () {
@@ -479,3 +481,26 @@ const exitBox = function () {
   const autoContainer = document.getElementById("auto-container");
   autoContainer.innerHTML = " ";
 };
+
+// Media queries for functionality:
+
+const cellPhoneMediaQuery = window.innerWidth < 500;
+const outputContainer = document.querySelector("#output");
+if (cellPhoneMediaQuery) {
+  btn.addEventListener("click", function () {
+    contentDiv.classList.add("hidden");
+    const resetButton = document.createElement("button");
+    resetButton.setAttribute("id", "reset-button");
+    outputContainer.appendChild(resetButton);
+  });
+}
+
+// function widthChangeCallback(cellPhoneMediaQuery) {
+//   if (cellPhoneMediaQuery.matches) {
+//     console.log("I am smaller than 500px");
+//   } else {
+//     console.log("I am bigger than 500px");
+//   }
+// }
+
+// widthChangeCallback(cellPhoneMediaQuery);

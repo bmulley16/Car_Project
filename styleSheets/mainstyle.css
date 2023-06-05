@@ -427,5 +427,23 @@ a {
     width: 320px;
   }
 
-  #auto;
+  #output {
+    width: 360px;
+    margin-top: 2rem;
+  }
+
+  #reset-button {
+    grid-area: reset;
+  }
+
+  #auto-container {
+    width: 360px;
+    grid-gap: 1rem;
+    grid-template-columns: 170px;
+    grid-template-areas:
+      "header header"
+      "Box-1 Box-2"
+      "Box-3 Box-4"
+      "reset reset";
+  }
 }
