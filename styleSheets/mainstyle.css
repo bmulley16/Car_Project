@@ -432,11 +432,8 @@ a {
     margin-top: 2rem;
   }
 
-  #reset-button {
-    grid-area: reset;
-  }
-
   #auto-container {
+    display: inline-grid;
     width: 360px;
     grid-gap: 1rem;
     grid-template-columns: 170px;
@@ -445,5 +442,24 @@ a {
       "Box-1 Box-2"
       "Box-3 Box-4"
       "reset reset";
+  }
+
+  #reset-button-container {
+    grid-area: reset;
+    display: flex;
+    justify-content: center;
+  }
+
+  #reset-button {
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    background-color: lightgrey;
+    border-radius: 0.5rem;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+
+  #reset-button:hover {
+    font-weight: bold;
   }
 }

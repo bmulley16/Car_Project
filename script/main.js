@@ -486,21 +486,17 @@ const exitBox = function () {
 
 const cellPhoneMediaQuery = window.innerWidth < 500;
 const outputContainer = document.querySelector("#output");
+const autoOutput = document.querySelector("#auto-container");
 if (cellPhoneMediaQuery) {
   btn.addEventListener("click", function () {
     contentDiv.classList.add("hidden");
+    const resetButtonContainerDiv = document.createElement("div");
+    resetButtonContainerDiv.setAttribute("id", "reset-button-container");
+    autoOutput.appendChild(resetButtonContainerDiv);
     const resetButton = document.createElement("button");
     resetButton.setAttribute("id", "reset-button");
-    outputContainer.appendChild(resetButton);
+    resetButton.textContent = "Reset";
+
+    resetButtonContainerDiv.appendChild(resetButton);
   });
 }
-
-// function widthChangeCallback(cellPhoneMediaQuery) {
-//   if (cellPhoneMediaQuery.matches) {
-//     console.log("I am smaller than 500px");
-//   } else {
-//     console.log("I am bigger than 500px");
-//   }
-// }
-
-// widthChangeCallback(cellPhoneMediaQuery);
