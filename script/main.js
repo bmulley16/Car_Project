@@ -498,5 +498,12 @@ if (cellPhoneMediaQuery) {
     resetButton.textContent = "Reset";
 
     resetButtonContainerDiv.appendChild(resetButton);
+
+    const resetButtonfunctionality = document.querySelector("#reset-button");
+
+    resetButtonfunctionality.addEventListener("click", function () {
+      outputContainer.classList.add("hidden");
+      contentDiv.classList.remove("hidden");
+    });
   });
 }
