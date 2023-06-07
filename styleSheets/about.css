@@ -163,14 +163,14 @@ body {
     flex-direction: column;
     height: 100%;
     margin-top: 0vw;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
   }
 
   #know-us-header {
     font-size: 2rem;
     color: white;
     text-decoration: underline solid 3px;
+    margin-top: 6rem;
   }
 
   #displayBlockContainer {
@@ -183,6 +183,7 @@ body {
     min-width: 0;
     backdrop-filter: blur(5px);
     justify-content: space-between;
+    margin-top: 5rem;
   }
 
   #displayBlockContainer h3 {
