@@ -161,7 +161,7 @@ body {
   #aboutUs-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: max-content;
     margin-top: 0vw;
     justify-content: space-around;
   }

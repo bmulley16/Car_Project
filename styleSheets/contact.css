@@ -1,0 +1,66 @@
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  background-image: url(/images/Serprntine\ belt.jpg);
+  background-color: darkgray;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  color: black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+  padding: 1.5rem 3rem;
+}
+
+.navbar ul {
+  display: flex;
+  padding-bottom: 0;
+}
+
+.navbar li,
+#checkoutLink {
+  margin: 0 40px;
+  padding: 2px;
+  font-size: 1.35rem;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.navbar li:hover {
+  text-decoration: underline solid red 2px;
+  font-weight: bold;
+}
+#checkoutLink:hover {
+  text-decoration: underline solid red 2px;
+  font-weight: bold;
+}
+
+.navbar h3 {
+  font-weight: bold;
+  color: white;
+  font-size: 2rem;
+  padding-bottom: 0;
+}
+#navbarBrandColoring {
+  color: white;
+}
