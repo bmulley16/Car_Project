@@ -7,6 +7,8 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
   /* background: rgba(0, 0, 0, 0.2) url(/images/Mechanic_Wall.jpg) center center
     no-repeat;
   background-size: cover; */

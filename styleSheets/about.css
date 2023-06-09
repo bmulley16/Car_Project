@@ -21,6 +21,7 @@ body {
   background-size: cover;
   background-blend-mode: multiply;
   color: black;
+  height: 100vh;
 }
 
 .navbar {
