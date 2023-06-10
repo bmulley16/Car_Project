@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  padding: 0;
+  /* padding: 0; */
   margin: 0;
 }
 
@@ -120,7 +120,9 @@ body {
 
   .navbar {
     margin: 0;
-    padding-bottom: 35px;
+    display: flex;
+    flex-direction: row;
+
     padding-right: 0px;
     padding-left: 0px;
     justify-content: space-evenly;
@@ -142,6 +144,7 @@ body {
     padding-bottom: 0;
     max-width: 100vw;
     margin-right: 0px;
+    padding-left: 40px;
   }
 
   .navbar li,
@@ -197,4 +200,8 @@ body {
   #displayBlockContainer article {
     padding: 1rem;
   }
+}
+
+#navbarBrandColoring {
+  display: none !important;
 }
