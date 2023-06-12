@@ -157,6 +157,9 @@ body {
     font-family: Georgia, "Times New Roman", Times, serif;
   }
 
+  #checkoutLink {
+    padding-right: 1rem;
+  }
   .navbar li:hover {
     text-decoration: underline solid red 2px;
     font-weight: bold;

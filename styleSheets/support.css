@@ -46,6 +46,9 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+#checkoutLink {
+  padding-right: 1rem;
+}
 .navbar li:hover {
   text-decoration: underline solid red 2px;
   font-weight: bold;
@@ -138,7 +141,7 @@ body {
 
   .navbar li,
   #checkoutLink {
-    padding: 0px;
+    /* padding: 0px; */
     font-size: 1rem;
     margin-right: 1.2rem;
     margin-left: 0rem;
