@@ -2,6 +2,10 @@
   viewport-fit: cover;
 }
 
+html {
+  height: 100vh;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
