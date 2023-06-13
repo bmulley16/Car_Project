@@ -1,3 +1,7 @@
+@viewport {
+  viewport-fit: cover;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
