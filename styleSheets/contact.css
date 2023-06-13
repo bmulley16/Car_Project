@@ -118,9 +118,11 @@ body {
   * {
     box-sizing: border-box;
     margin: 0;
-    height: 100%;
   }
 
+  body {
+    height: 100%;
+  }
   #navbarBrandColoring {
     display: none !important;
   }
