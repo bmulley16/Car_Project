@@ -14,7 +14,7 @@ a {
 }
 
 body {
-  background-image: url(./images/Ratchet_Image.jpg);
+  background-image: url(../images/Ratchet_Image.jpg);
   background-position: center;
   background-size: cover;
 }

@@ -15,7 +15,7 @@ ul {
 
 body {
   background-color: darkgray;
-  background-image: url("./images/Bmwheadlight.jpg");
+  background-image: url("../images/Bmwheadlight.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -117,7 +117,7 @@ body {
   body {
     height: 100%;
     background-color: darkgray;
-    background-image: url("/images/Bmwheadlight.jpg");
+    background-image: url("../images/Bmwheadlight.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
